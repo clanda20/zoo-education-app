@@ -134,6 +134,7 @@ struct MammalDetail: View {
                     
             }
         }
+        .safeAreaPadding(.bottom, 96)
         .zooScreenStyle()
         .edgesIgnoringSafeArea(.top)
     }

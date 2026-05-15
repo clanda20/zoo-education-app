@@ -136,6 +136,7 @@ struct AmphibianDetail: View {
                     
             }
         }
+        .safeAreaPadding(.bottom, 96)
         .zooScreenStyle()
         .edgesIgnoringSafeArea(.top)
     }

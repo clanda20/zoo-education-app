@@ -134,6 +134,7 @@ struct FishDetail: View {
                     
             }
         }
+        .safeAreaPadding(.bottom, 96)
         .zooScreenStyle()
         .edgesIgnoringSafeArea(.top)
     }
