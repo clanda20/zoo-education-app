@@ -32,11 +32,13 @@ struct ZooApp: App {
 
 struct ZooWelcomeView: View {
     let onStart: () -> Void
+    @State private var earthSpins = false
 
     var body: some View {
         GeometryReader { proxy in
             let fullWidth = proxy.size.width + proxy.safeAreaInsets.leading + proxy.safeAreaInsets.trailing
             let fullHeight = proxy.size.height + proxy.safeAreaInsets.top + proxy.safeAreaInsets.bottom
+            let earthSize = min(fullWidth * 1.10, 500)
 
             ZStack {
                 Color.black
@@ -59,6 +61,16 @@ struct ZooWelcomeView: View {
                     endPoint: .bottom
                 )
                 .ignoresSafeArea()
+
+                Image("earth_star_zoo_globe")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: earthSize, height: earthSize)
+                    .clipShape(Circle())
+                    .rotationEffect(.degrees(earthSpins ? 360 : 0))
+                    .animation(.linear(duration: 14).repeatForever(autoreverses: false), value: earthSpins)
+                    .shadow(color: Color.blue.opacity(0.26), radius: 22, x: 0, y: 0)
+                    .position(x: proxy.size.width / 2, y: fullHeight * 0.43)
 
                 VStack(spacing: 24) {
                     Spacer()
@@ -95,6 +107,9 @@ struct ZooWelcomeView: View {
                 }
                 .padding(.horizontal, 28)
             }
+        }
+        .onAppear {
+            earthSpins = true
         }
     }
 }
