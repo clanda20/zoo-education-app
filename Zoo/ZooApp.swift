@@ -90,6 +90,13 @@ extension View {
             .shadow(color: ZooTheme.primary.opacity(0.10), radius: 8, x: 0, y: 4)
     }
 
+    func animalHeroImageStyle() -> some View {
+        self
+            .frame(maxWidth: 420)
+            .frame(height: 240)
+            .frame(maxWidth: .infinity)
+    }
+
     func zooParkChip(location: String) -> some View {
         self
             .fontWeight(.bold)

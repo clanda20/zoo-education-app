@@ -434,25 +434,29 @@ private struct ZooIllustratedMapCanvas: View {
 
 private struct ZooMapBackground: View {
     var body: some View {
-        ZStack {
-            LinearGradient(
-                colors: [
-                    Color(red: 0.86, green: 0.94, blue: 0.72),
-                    Color(red: 0.96, green: 0.94, blue: 0.78),
-                    Color(red: 0.78, green: 0.91, blue: 0.70)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+        GeometryReader { proxy in
+            let size = proxy.size
 
-            ForEach(0..<32, id: \.self) { index in
-                Circle()
-                    .fill(ZooTheme.primary.opacity(index.isMultiple(of: 2) ? 0.08 : 0.05))
-                    .frame(width: CGFloat(18 + (index % 5) * 9))
-                    .position(
-                        x: CGFloat((index * 67) % 370) / 370.0 * UIScreen.main.bounds.width * 2.4,
-                        y: CGFloat((index * 131) % 700) / 700.0 * UIScreen.main.bounds.height * 1.8
-                    )
+            ZStack {
+                LinearGradient(
+                    colors: [
+                        Color(red: 0.86, green: 0.94, blue: 0.72),
+                        Color(red: 0.96, green: 0.94, blue: 0.78),
+                        Color(red: 0.78, green: 0.91, blue: 0.70)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+
+                ForEach(0..<32, id: \.self) { index in
+                    Circle()
+                        .fill(ZooTheme.primary.opacity(index.isMultiple(of: 2) ? 0.08 : 0.05))
+                        .frame(width: CGFloat(18 + (index % 5) * 9))
+                        .position(
+                            x: CGFloat((index * 67) % 370) / 370.0 * size.width,
+                            y: CGFloat((index * 131) % 700) / 700.0 * size.height
+                        )
+                }
             }
         }
     }

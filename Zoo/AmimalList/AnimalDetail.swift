@@ -21,8 +21,7 @@ struct AnimalDetail: View {
                 Image(animal.name.lowercased().filter{ $0 != " " })
                     .resizable()
                     .scaledToFit()
-                    .frame(maxWidth: UIScreen.main.bounds.width * 0.72)
-                    .frame(height: UIScreen.main.bounds.height/4)
+                    .animalHeroImageStyle()
                     .shadow(color: ZooTheme.primary.opacity(0.24), radius: 8, x: 0, y: 4)
                     .padding(.top, 100)
 
