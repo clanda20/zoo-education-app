@@ -35,11 +35,17 @@ struct ZooWelcomeView: View {
 
     var body: some View {
         GeometryReader { proxy in
+            let fullWidth = proxy.size.width + proxy.safeAreaInsets.leading + proxy.safeAreaInsets.trailing
+            let fullHeight = proxy.size.height + proxy.safeAreaInsets.top + proxy.safeAreaInsets.bottom
+
             ZStack {
+                Color.black
+                    .ignoresSafeArea()
+
                 Image("earth_star_zoo")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: proxy.size.width, height: proxy.size.height)
+                    .frame(width: fullWidth, height: fullHeight)
                     .clipped()
                     .ignoresSafeArea()
 
