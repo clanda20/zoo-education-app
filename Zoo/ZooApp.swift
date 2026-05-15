@@ -144,12 +144,9 @@ struct ZooWelcomeView: View {
                         )
                     )
 
-                HStack(spacing: size * 0.12) {
-                    earthContinents(size: size)
-                    earthContinents(size: size)
-                }
-                .offset(x: earthSpins ? -size * 0.92 : size * 0.06)
-                .animation(.linear(duration: 4.2).repeatForever(autoreverses: false), value: earthSpins)
+                earthContinents(size: size)
+                    .rotationEffect(.degrees(earthSpins ? 360 : 0))
+                    .animation(.linear(duration: 7).repeatForever(autoreverses: false), value: earthSpins)
                 .mask(Circle())
 
                 Circle()
@@ -165,6 +162,8 @@ struct ZooWelcomeView: View {
                     )
             }
             .clipShape(Circle())
+            .frame(width: size, height: size)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
     }
 
@@ -172,28 +171,33 @@ struct ZooWelcomeView: View {
         ZStack {
             Capsule()
                 .fill(Color(red: 0.30, green: 0.68, blue: 0.30))
-                .frame(width: size * 0.44, height: size * 0.19)
-                .offset(x: -size * 0.22, y: -size * 0.20)
+                .frame(width: size * 0.45, height: size * 0.20)
+                .offset(x: -size * 0.18, y: -size * 0.21)
                 .rotationEffect(.degrees(-24))
 
             Circle()
                 .fill(Color(red: 0.42, green: 0.78, blue: 0.35))
-                .frame(width: size * 0.22, height: size * 0.22)
-                .offset(x: -size * 0.02, y: -size * 0.12)
+                .frame(width: size * 0.24, height: size * 0.24)
+                .offset(x: size * 0.10, y: -size * 0.12)
 
             Capsule()
                 .fill(Color(red: 0.27, green: 0.65, blue: 0.32))
-                .frame(width: size * 0.42, height: size * 0.18)
-                .offset(x: size * 0.25, y: size * 0.10)
+                .frame(width: size * 0.43, height: size * 0.18)
+                .offset(x: size * 0.22, y: size * 0.12)
                 .rotationEffect(.degrees(18))
 
             Capsule()
                 .fill(Color(red: 0.45, green: 0.78, blue: 0.36))
-                .frame(width: size * 0.18, height: size * 0.34)
-                .offset(x: -size * 0.28, y: size * 0.22)
+                .frame(width: size * 0.18, height: size * 0.33)
+                .offset(x: -size * 0.25, y: size * 0.23)
                 .rotationEffect(.degrees(16))
+
+            Circle()
+                .fill(Color(red: 0.50, green: 0.82, blue: 0.38))
+                .frame(width: size * 0.16, height: size * 0.16)
+                .offset(x: size * 0.00, y: size * 0.30)
         }
-        .frame(width: size * 0.82, height: size)
+        .frame(width: size, height: size)
         .drawingGroup()
     }
 }
