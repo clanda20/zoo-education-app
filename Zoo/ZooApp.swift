@@ -334,8 +334,8 @@ extension View {
 
     func animalProfileMapInset() -> some View {
         self
-            .padding(.horizontal, 24)
-            .padding(.bottom, 14)
+            .padding(.horizontal, 14)
+            .padding(.bottom, 8)
     }
 }
 
