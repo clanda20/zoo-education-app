@@ -61,13 +61,13 @@ struct InteractiveZooMap: View {
     @State private var lastOffset: CGSize = .zero
 
     private var minScale: CGFloat { compact ? 1.0 : 0.86 }
-    private var maxScale: CGFloat { compact ? 2.6 : 2.2 }
+    private var maxScale: CGFloat { compact ? 3.2 : 2.2 }
 
     var body: some View {
         GeometryReader { proxy in
             let canvasSize = CGSize(
-                width: compact ? proxy.size.width * 1.35 : max(proxy.size.width, 760),
-                height: compact ? max(proxy.size.height, 420) : max(proxy.size.height, 1120)
+                width: compact ? proxy.size.width * 1.85 : max(proxy.size.width, 760),
+                height: compact ? max(proxy.size.height * 1.35, 520) : max(proxy.size.height, 1120)
             )
 
             ZStack(alignment: .bottomTrailing) {
@@ -123,10 +123,7 @@ struct InteractiveZooMap: View {
 
                     Button {
                         withAnimation(.spring(response: 0.30, dampingFraction: 0.85)) {
-                            scale = 1
-                            lastScale = 1
-                            offset = .zero
-                            lastOffset = .zero
+                            resetView(in: proxy.size, canvasSize: canvasSize)
                         }
                     } label: {
                         Image(systemName: "arrow.counterclockwise")
@@ -142,8 +139,36 @@ struct InteractiveZooMap: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(ZooTheme.background)
             .clipShape(RoundedRectangle(cornerRadius: compact ? 24 : 0, style: .continuous))
+            .onAppear {
+                resetView(in: proxy.size, canvasSize: canvasSize)
+            }
+            .onChange(of: selectedAnimalName ?? "") { _, _ in
+                resetView(in: proxy.size, canvasSize: canvasSize)
+            }
         }
         .frame(maxWidth: .infinity, minHeight: compact ? 340 : 640)
+    }
+
+    private func resetView(in viewportSize: CGSize, canvasSize: CGSize) {
+        guard compact, let selectedAnimalName else {
+            scale = 1
+            lastScale = 1
+            offset = .zero
+            lastOffset = .zero
+            return
+        }
+
+        let focusScale: CGFloat = 2.05
+        let focusPoint = ZooMapLayout.point(for: selectedAnimalName)
+        let centeredOffset = CGSize(
+            width: -((focusPoint.x - 0.5) * canvasSize.width * focusScale),
+            height: -((focusPoint.y - 0.5) * canvasSize.height * focusScale)
+        )
+
+        scale = focusScale
+        lastScale = focusScale
+        offset = centeredOffset
+        lastOffset = centeredOffset
     }
 }
 
@@ -433,7 +458,7 @@ private struct ZooIllustratedAnimalMarker: View {
     let compact: Bool
 
     private var markerSize: CGFloat {
-        if compact { return isSelected ? 58 : 44 }
+        if compact { return isSelected ? 58 : 32 }
         return isSelected ? 78 : 62
     }
 
@@ -463,6 +488,7 @@ private struct ZooIllustratedAnimalMarker: View {
                 .padding(.vertical, 2)
                 .background(ZooTheme.surface.opacity(0.92))
                 .clipShape(Capsule())
+                .opacity(compact && !isSelected ? 0 : 1)
         }
         .accessibilityLabel(animal.name)
     }

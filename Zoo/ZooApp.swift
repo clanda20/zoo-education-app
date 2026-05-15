@@ -137,6 +137,7 @@ struct AnimalProfileMap: View {
 
     let animalName: String
     @State private var visitorName: String
+    @State private var showExpandedMap = false
 
     @AppStorage(Self.lastVisitedNameKey) private var lastVisitedAnimalName = ZooMapLayout.entranceName
 
@@ -146,16 +147,55 @@ struct AnimalProfileMap: View {
     }
 
     var body: some View {
-        InteractiveZooMap(
-            animals: animalData,
-            selectedAnimalName: animalName,
-            visitorName: visitorName,
-            compact: true
-        )
-        .frame(maxWidth: .infinity, minHeight: 340)
+        ZStack(alignment: .topTrailing) {
+            InteractiveZooMap(
+                animals: animalData,
+                selectedAnimalName: animalName,
+                visitorName: visitorName,
+                compact: true
+            )
+            .frame(maxWidth: .infinity, minHeight: 340)
+            .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+            .onTapGesture {
+                showExpandedMap = true
+            }
+
+            Button {
+                showExpandedMap = true
+            } label: {
+                Image(systemName: "arrow.up.left.and.arrow.down.right")
+                    .font(.headline.weight(.bold))
+                    .foregroundStyle(ZooTheme.primary)
+                    .padding(10)
+                    .background(ZooTheme.surface.opacity(0.92))
+                    .clipShape(Circle())
+                    .shadow(color: ZooTheme.primary.opacity(0.16), radius: 6, x: 0, y: 3)
+            }
+            .padding(12)
+        }
         .overlay {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
+        }
+        .sheet(isPresented: $showExpandedMap) {
+            NavigationStack {
+                InteractiveZooMap(
+                    animals: animalData,
+                    selectedAnimalName: animalName,
+                    visitorName: visitorName
+                )
+                .ignoresSafeArea(edges: .bottom)
+                .navigationTitle("\(animalName) Map")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Done") {
+                            showExpandedMap = false
+                        }
+                    }
+                }
+            }
+            .presentationDetents([.large])
         }
         .onAppear {
             saveCurrentVisit()
