@@ -12,7 +12,6 @@ let ZooVolunteerData: [ZooVolunteer] = [
       title: "Benjamin",
       headline: "Youth volunteer who helps with guest directions on Mondays.",
       image: "Benjamin",
-
       description: """
         Benjamin helps visitors find animal areas, rest spots, and show times. He enjoys learning from the keepers and is especially helpful during school group visits when families need quick directions.
         """,
@@ -85,6 +84,16 @@ let ZooVolunteerData: [ZooVolunteer] = [
       volunteringDays: "Saturday",
       kidAge: 12
   ),
+  ZooVolunteer(
+      title: "Tina",
+      headline: "Saturday volunteer who welcomes new guests and school groups.",
+      image: "Tina",
+      description: """
+        Tina greets visitors near the learning stations, helps children find the right activity table, and reminds families about animal talks. She enjoys making the first stop at the zoo feel friendly and organized.
+        """,
+      volunteringDays: "Saturday",
+      kidAge: 13
+  ),
     ZooVolunteer(
         title: "Teo",
         headline: "Sunday volunteer who supports map help and guest learning stops.",
@@ -94,5 +103,15 @@ let ZooVolunteerData: [ZooVolunteer] = [
         """,
         volunteringDays: "Sunday",
         kidAge: 15
+    ),
+    ZooVolunteer(
+        title: "Jamal",
+        headline: "Sunday volunteer who helps visitors spot animals from safe viewing areas.",
+        image: "Jamal",
+        description: """
+        Jamal helps guests use binoculars, compare animal markings, and notice behavior from a respectful distance. He likes turning quiet observation moments into fun questions for young explorers.
+        """,
+        volunteringDays: "Sunday",
+        kidAge: 10
     )
 ]

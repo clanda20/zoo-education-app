@@ -20,7 +20,6 @@ struct ZooVolunteerRowView: View {
           .renderingMode(.original)
           .resizable()
           .scaledToFit()
-          .blendMode(.multiply)
           .frame(width: 80, height: 80, alignment: .center)
           .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
   //        .background(
