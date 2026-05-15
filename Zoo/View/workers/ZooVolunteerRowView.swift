@@ -20,7 +20,7 @@ struct ZooVolunteerRowView: View {
           .renderingMode(.original)
           .resizable()
           .scaledToFit()
-          .frame(width: 80, height: 80, alignment: .center)
+          .frame(width: 76, height: 96, alignment: .center)
           .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
   //        .background(
   //          LinearGradient(gradient: Gradient(colors: zooKeeper.gradientColors), startPoint: .top, endPoint: .bottom)

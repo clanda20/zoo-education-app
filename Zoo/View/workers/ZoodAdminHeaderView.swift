@@ -29,7 +29,6 @@ struct ZooAdminHeaderView: View {
             Image(zooAdminKeeper.image)
             .resizable()
             .scaledToFit()
-            .blendMode(.multiply)
             .frame(width: 250, height: 250)
             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 8, x: 6, y: 8)
             .padding(.vertical, 20)

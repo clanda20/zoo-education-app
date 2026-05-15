@@ -13,7 +13,6 @@ struct ZooKeeperRowView: View {
         .renderingMode(.original)
         .resizable()
         .scaledToFit()
-        .blendMode(.multiply)
         .frame(width: 120, height: 120, alignment: .center)
         .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
         .cornerRadius(8)
