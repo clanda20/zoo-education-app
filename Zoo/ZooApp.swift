@@ -134,158 +134,47 @@ extension View {
 
 struct AnimalProfileMap: View {
     private static let lastVisitedNameKey = "lastVisitedAnimalName"
-    private static let lastVisitedLatitudeKey = "lastVisitedAnimalLatitude"
-    private static let lastVisitedLongitudeKey = "lastVisitedAnimalLongitude"
-    private static let zooEntranceName = "Zoo Entrance"
-    private static let zooEntranceCoordinate = CLLocationCoordinate2D(latitude: 33.099200, longitude: -117.000200)
 
     let animalName: String
-    let animalCoordinate: CLLocationCoordinate2D
-
-    @State private var position: MapCameraPosition
-    @State private var visitorCoordinate: CLLocationCoordinate2D
     @State private var visitorName: String
 
-    @AppStorage(Self.lastVisitedNameKey) private var lastVisitedAnimalName = Self.zooEntranceName
-    @AppStorage(Self.lastVisitedLatitudeKey) private var lastVisitedLatitude = 0.0
-    @AppStorage(Self.lastVisitedLongitudeKey) private var lastVisitedLongitude = 0.0
+    @AppStorage(Self.lastVisitedNameKey) private var lastVisitedAnimalName = ZooMapLayout.entranceName
 
     init(animalName: String, animalCoordinate: CLLocationCoordinate2D) {
         self.animalName = animalName
-        self.animalCoordinate = animalCoordinate
-
-        let visitor = Self.savedVisitor()
-        let region = Self.routeRegion(from: visitor.coordinate, to: animalCoordinate)
-
-        _position = State(initialValue: .region(region))
-        _visitorCoordinate = State(initialValue: visitor.coordinate)
-        _visitorName = State(initialValue: visitor.name)
+        _visitorName = State(initialValue: Self.savedVisitorName())
     }
 
     var body: some View {
-        Map(position: $position, interactionModes: [.pan, .zoom, .rotate]) {
-            Marker("You: \(visitorName)", systemImage: "figure.walk", coordinate: visitorCoordinate)
-                .tint(ZooTheme.secondary)
-
-            ForEach(animalData) { animal in
-                let coordinate = CLLocationCoordinate2D(latitude: animal.latitude, longitude: animal.longitude)
-
-                Annotation(animal.name, coordinate: coordinate) {
-                    if isCurrentAnimal(animal) {
-                        ProfileAnimalMapMarker(animalName: animal.name, isCurrent: true)
-                    } else {
-                        NavigationLink(destination: AnimalDetail(animal: animal)) {
-                            ProfileAnimalMapMarker(animalName: animal.name, isCurrent: false)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-            }
-
-            MapPolyline(coordinates: [visitorCoordinate, animalCoordinate])
-                .stroke(
-                    ZooTheme.warmAccent,
-                    style: StrokeStyle(lineWidth: 4, lineCap: .round, dash: [8, 6])
-                )
-        }
-        .mapControls {
-            MapCompass()
-            MapScaleView()
-        }
+        InteractiveZooMap(
+            animals: animalData,
+            selectedAnimalName: animalName,
+            visitorName: visitorName,
+            compact: true
+        )
         .frame(maxWidth: .infinity, minHeight: 340)
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
         }
         .onAppear {
-            position = .region(Self.routeRegion(from: visitorCoordinate, to: animalCoordinate))
             saveCurrentVisit()
         }
     }
 
-    private func isCurrentAnimal(_ animal: ZooAnimals) -> Bool {
-        animal.name.caseInsensitiveCompare(animalName) == .orderedSame
-    }
-
     private func saveCurrentVisit() {
         lastVisitedAnimalName = animalName
-        lastVisitedLatitude = animalCoordinate.latitude
-        lastVisitedLongitude = animalCoordinate.longitude
     }
 
-    private static func savedVisitor() -> (name: String, coordinate: CLLocationCoordinate2D) {
+    private static func savedVisitorName() -> String {
         let defaults = UserDefaults.standard
-        let hasSavedLatitude = defaults.object(forKey: lastVisitedLatitudeKey) != nil
-        let hasSavedLongitude = defaults.object(forKey: lastVisitedLongitudeKey) != nil
+        let savedName = defaults.string(forKey: lastVisitedNameKey) ?? ZooMapLayout.entranceName
 
-        guard hasSavedLatitude, hasSavedLongitude else {
-            return (zooEntranceName, zooEntranceCoordinate)
+        guard savedName == ZooMapLayout.entranceName
+                || animalData.contains(where: { $0.name.caseInsensitiveCompare(savedName) == .orderedSame }) else {
+            return ZooMapLayout.entranceName
         }
 
-        let savedCoordinate = CLLocationCoordinate2D(
-            latitude: defaults.double(forKey: lastVisitedLatitudeKey),
-            longitude: defaults.double(forKey: lastVisitedLongitudeKey)
-        )
-
-        guard CLLocationCoordinate2DIsValid(savedCoordinate),
-              savedCoordinate.latitude != 0 || savedCoordinate.longitude != 0,
-              isInsideZoo(savedCoordinate) else {
-            return (zooEntranceName, zooEntranceCoordinate)
-        }
-
-        let savedName = defaults.string(forKey: lastVisitedNameKey) ?? zooEntranceName
-        return (savedName, savedCoordinate)
-    }
-
-    private static func isInsideZoo(_ coordinate: CLLocationCoordinate2D) -> Bool {
-        (33.095...33.1025).contains(coordinate.latitude)
-        && (-117.001...(-116.994)).contains(coordinate.longitude)
-    }
-
-    private static func routeRegion(from visitorCoordinate: CLLocationCoordinate2D, to animalCoordinate: CLLocationCoordinate2D) -> MKCoordinateRegion {
-        let latitudeDistance = abs(visitorCoordinate.latitude - animalCoordinate.latitude)
-        let longitudeDistance = abs(visitorCoordinate.longitude - animalCoordinate.longitude)
-        let center = CLLocationCoordinate2D(
-            latitude: (visitorCoordinate.latitude + animalCoordinate.latitude) / 2,
-            longitude: (visitorCoordinate.longitude + animalCoordinate.longitude) / 2
-        )
-
-        return MKCoordinateRegion(
-            center: center,
-            span: MKCoordinateSpan(
-                latitudeDelta: max(latitudeDistance * 1.8, 0.0012),
-                longitudeDelta: max(longitudeDistance * 1.8, 0.0012)
-            )
-        )
-    }
-}
-
-private struct ProfileAnimalMapMarker: View {
-    let animalName: String
-    let isCurrent: Bool
-
-    var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            Image(animalName.lowercased().filter { $0 != " " })
-                .resizable()
-                .scaledToFit()
-                .padding(5)
-                .frame(width: isCurrent ? 58 : 46, height: isCurrent ? 58 : 46)
-                .background(ZooTheme.surface.opacity(0.94))
-                .clipShape(Circle())
-                .overlay {
-                    Circle()
-                        .stroke(isCurrent ? ZooTheme.warmAccent : ZooTheme.primary.opacity(0.28), lineWidth: isCurrent ? 3 : 1)
-                }
-                .shadow(color: ZooTheme.primary.opacity(0.18), radius: 5, x: 0, y: 2)
-
-            if isCurrent {
-                Image(systemName: "mappin.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(ZooTheme.warmAccent)
-                    .background(ZooTheme.surface.clipShape(Circle()))
-            }
-        }
+        return savedName
     }
 }
