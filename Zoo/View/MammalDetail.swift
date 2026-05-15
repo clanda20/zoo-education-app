@@ -121,6 +121,7 @@ struct MammalDetail: View {
                     
                     let location = CLLocationCoordinate2D(latitude: self.animalMammal.latitude, longitude: self.animalMammal.longitude)
                     AnimalProfileMap(animalName: animalMammal.name, animalCoordinate: location)
+                        .padding(.bottom, 22)
                 }
                 .padding()
                 .background(animalMammal.typeOverlay().opacity(0.66))
@@ -133,7 +134,7 @@ struct MammalDetail: View {
                     
             }
         }
-        .safeAreaPadding(.bottom, 96)
+        .safeAreaPadding(.bottom, 28)
         .zooScreenStyle()
         .edgesIgnoringSafeArea(.top)
     }

@@ -108,6 +108,7 @@ struct AnimalDetail: View {
                     
                     let location = CLLocationCoordinate2D(latitude: self.animal.latitude, longitude: self.animal.longitude)
                     AnimalProfileMap(animalName: animal.name, animalCoordinate: location)
+                        .padding(.bottom, 22)
                 }
                 
                 .padding(.top)
@@ -123,7 +124,7 @@ struct AnimalDetail: View {
             }
             .edgesIgnoringSafeArea(.top)
         }
-        .safeAreaPadding(.bottom, 96)
+        .safeAreaPadding(.bottom, 28)
         .zooScreenStyle()
         .edgesIgnoringSafeArea(.top)
         
