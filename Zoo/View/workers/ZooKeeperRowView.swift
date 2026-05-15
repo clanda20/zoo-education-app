@@ -22,10 +22,10 @@ struct ZooKeeperRowView: View {
           .font(.title2)
           .fontWeight(.bold)
           .foregroundStyle(ZooTheme.ink)
-          Text(zooKeeper.title)
+          Text(zooKeeper.headline)
           .font(.caption)
           .foregroundColor(ZooTheme.mutedInk)
-          .lineLimit(1)
+          .lineLimit(2)
       }
     } //: HSTACK
     .frame(width: 244, height: 108, alignment: .leading)

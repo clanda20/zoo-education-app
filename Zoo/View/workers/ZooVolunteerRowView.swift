@@ -32,10 +32,10 @@ struct ZooVolunteerRowView: View {
             .font(.title2)
             .fontWeight(.bold)
             .foregroundStyle(ZooTheme.ink)
-            Text(zooVolunteer.title)
+            Text(zooVolunteer.headline)
             .font(.caption)
             .foregroundColor(ZooTheme.mutedInk)
-            .lineLimit(1)
+            .lineLimit(2)
         }
       } //: HSTACK
       .frame(width: 244, height: 108, alignment: .leading)
