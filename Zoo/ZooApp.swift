@@ -184,6 +184,7 @@ struct AnimalProfileMap: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
         }
+        .padding(.trailing, 16)
         .sheet(isPresented: $showExpandedMap) {
             NavigationStack {
                 InteractiveZooMap(
