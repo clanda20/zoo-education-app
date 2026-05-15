@@ -70,7 +70,7 @@ struct InteractiveZooMap: View {
                 height: compact ? max(proxy.size.height * 1.35, 520) : max(proxy.size.height, 1120)
             )
 
-            ZStack(alignment: .bottomTrailing) {
+            ZStack {
                 ZooIllustratedMapCanvas(
                     animals: animals,
                     selectedAnimalName: selectedAnimalName,
@@ -102,6 +102,57 @@ struct InteractiveZooMap: View {
                         }
                 )
 
+                mapControls(proxySize: proxy.size, canvasSize: canvasSize)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(ZooTheme.background)
+            .clipShape(RoundedRectangle(cornerRadius: compact ? 24 : 0, style: .continuous))
+            .onAppear {
+                resetView(in: proxy.size, canvasSize: canvasSize)
+            }
+            .onChange(of: selectedAnimalName ?? "") { _, _ in
+                resetView(in: proxy.size, canvasSize: canvasSize)
+            }
+            .onChange(of: proxy.size) { _, newSize in
+                let newCanvasSize = CGSize(
+                    width: compact ? newSize.width * 1.85 : max(newSize.width, 760),
+                    height: compact ? max(newSize.height * 1.35, 520) : max(newSize.height, 1120)
+                )
+                resetView(in: newSize, canvasSize: newCanvasSize)
+            }
+        }
+        .frame(maxWidth: .infinity, minHeight: compact ? 340 : 640)
+    }
+
+    private func resetView(in viewportSize: CGSize, canvasSize: CGSize) {
+        guard let selectedAnimalName else {
+            scale = 1
+            lastScale = 1
+            offset = .zero
+            lastOffset = .zero
+            return
+        }
+
+        let focusScale: CGFloat = compact ? 1.55 : 1.22
+        let focusPoint = ZooMapLayout.point(for: selectedAnimalName)
+        let centeredOffset = CGSize(
+            width: -((focusPoint.x - 0.5) * canvasSize.width * focusScale),
+            height: -((focusPoint.y - 0.5) * canvasSize.height * focusScale)
+        )
+
+        scale = focusScale
+        lastScale = focusScale
+        offset = centeredOffset
+        lastOffset = centeredOffset
+    }
+
+    private func mapControls(proxySize: CGSize, canvasSize: CGSize) -> some View {
+        VStack {
+            Spacer()
+
+            HStack {
+                Spacer()
+
                 HStack(spacing: 10) {
                     Button {
                         withAnimation(.spring(response: 0.25, dampingFraction: 0.85)) {
@@ -123,52 +174,21 @@ struct InteractiveZooMap: View {
 
                     Button {
                         withAnimation(.spring(response: 0.30, dampingFraction: 0.85)) {
-                            resetView(in: proxy.size, canvasSize: canvasSize)
+                            resetView(in: proxySize, canvasSize: canvasSize)
                         }
                     } label: {
                         Image(systemName: "arrow.counterclockwise")
                     }
                 }
                 .font(.title3.weight(.bold))
+                .foregroundStyle(ZooTheme.primary)
                 .padding(10)
-                .background(ZooTheme.surface.opacity(0.9))
+                .background(ZooTheme.surface.opacity(0.94))
                 .clipShape(Capsule())
                 .shadow(color: ZooTheme.primary.opacity(0.16), radius: 8, x: 0, y: 4)
-                .padding(compact ? 10 : 18)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(ZooTheme.background)
-            .clipShape(RoundedRectangle(cornerRadius: compact ? 24 : 0, style: .continuous))
-            .onAppear {
-                resetView(in: proxy.size, canvasSize: canvasSize)
-            }
-            .onChange(of: selectedAnimalName ?? "") { _, _ in
-                resetView(in: proxy.size, canvasSize: canvasSize)
             }
         }
-        .frame(maxWidth: .infinity, minHeight: compact ? 340 : 640)
-    }
-
-    private func resetView(in viewportSize: CGSize, canvasSize: CGSize) {
-        guard compact, let selectedAnimalName else {
-            scale = 1
-            lastScale = 1
-            offset = .zero
-            lastOffset = .zero
-            return
-        }
-
-        let focusScale: CGFloat = 2.05
-        let focusPoint = ZooMapLayout.point(for: selectedAnimalName)
-        let centeredOffset = CGSize(
-            width: -((focusPoint.x - 0.5) * canvasSize.width * focusScale),
-            height: -((focusPoint.y - 0.5) * canvasSize.height * focusScale)
-        )
-
-        scale = focusScale
-        lastScale = focusScale
-        offset = centeredOffset
-        lastOffset = centeredOffset
+        .padding(compact ? 10 : 18)
     }
 }
 
