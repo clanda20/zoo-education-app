@@ -33,66 +33,44 @@ struct ZooApp: App {
 struct ZooWelcomeView: View {
     let onStart: () -> Void
 
-    @State private var earthSpins = false
-    @State private var starPhase = 0
-
-    private let stars: [WelcomeStar] = [
-        .init(x: 0.10, y: 0.15, size: 2.0, group: 0), .init(x: 0.23, y: 0.09, size: 1.2, group: 1),
-        .init(x: 0.36, y: 0.19, size: 1.6, group: 2), .init(x: 0.58, y: 0.10, size: 2.4, group: 0),
-        .init(x: 0.79, y: 0.17, size: 1.5, group: 1), .init(x: 0.91, y: 0.08, size: 2.0, group: 2),
-        .init(x: 0.14, y: 0.37, size: 1.4, group: 1), .init(x: 0.31, y: 0.31, size: 2.2, group: 2),
-        .init(x: 0.47, y: 0.43, size: 1.3, group: 0), .init(x: 0.68, y: 0.35, size: 1.9, group: 1),
-        .init(x: 0.86, y: 0.46, size: 1.4, group: 2), .init(x: 0.18, y: 0.67, size: 2.1, group: 0),
-        .init(x: 0.39, y: 0.75, size: 1.5, group: 1), .init(x: 0.62, y: 0.66, size: 1.8, group: 2),
-        .init(x: 0.82, y: 0.78, size: 2.2, group: 0), .init(x: 0.93, y: 0.61, size: 1.2, group: 1)
-    ]
-
     var body: some View {
         GeometryReader { proxy in
             ZStack {
+                Image("earth_star_zoo")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: proxy.size.width, height: proxy.size.height)
+                    .clipped()
+                    .ignoresSafeArea()
+
                 LinearGradient(
                     colors: [
-                        Color.black,
-                        Color(red: 0.02, green: 0.04, blue: 0.10),
-                        Color(red: 0.00, green: 0.01, blue: 0.04)
+                        Color.black.opacity(0.20),
+                        Color.black.opacity(0.10),
+                        Color.black.opacity(0.78)
                     ],
                     startPoint: .top,
                     endPoint: .bottom
                 )
                 .ignoresSafeArea()
 
-                ForEach(stars) { star in
-                    Circle()
-                        .fill(Color.white.opacity(star.group == starPhase ? 1.0 : 0.20))
-                        .frame(
-                            width: star.group == starPhase ? star.size * 1.45 : star.size,
-                            height: star.group == starPhase ? star.size * 1.45 : star.size
-                        )
-                        .position(x: proxy.size.width * star.x, y: proxy.size.height * star.y)
-                        .animation(
-                            .easeInOut(duration: 0.25),
-                            value: starPhase
-                        )
-                }
-
-                VStack(spacing: 26) {
-                    Spacer(minLength: 40)
-
-                    spinningEarth
-                        .frame(width: min(proxy.size.width * 0.52, 260), height: min(proxy.size.width * 0.52, 260))
-                        .shadow(color: Color.blue.opacity(0.45), radius: 30, x: 0, y: 0)
-
+                VStack(spacing: 24) {
+                    Spacer()
+                        .frame(height: max(proxy.size.height * 0.54, 360))
+                    
                     VStack(spacing: 10) {
                         Text("Wildwood Learning Zoo")
                             .font(.largeTitle.weight(.bold))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.white)
+                            .shadow(color: .black.opacity(0.55), radius: 8, x: 0, y: 3)
 
                         Text("Explore animals, habitats, maps, and the people who care for the zoo.")
                             .font(.headline)
                             .multilineTextAlignment(.center)
-                            .foregroundStyle(.white.opacity(0.78))
+                            .foregroundStyle(.white.opacity(0.86))
                             .frame(maxWidth: 420)
+                            .shadow(color: .black.opacity(0.55), radius: 6, x: 0, y: 2)
                     }
 
                     Button(action: onStart) {
@@ -107,107 +85,12 @@ struct ZooWelcomeView: View {
                     .buttonStyle(.plain)
                     .shadow(color: Color.white.opacity(0.24), radius: 16, x: 0, y: 8)
 
-                    Spacer(minLength: 40)
+                    Spacer(minLength: 32)
                 }
                 .padding(.horizontal, 28)
             }
         }
-        .onAppear {
-            earthSpins = true
-        }
-        .task {
-            while !Task.isCancelled {
-                try? await Task.sleep(for: .seconds(1))
-                withAnimation(.easeInOut(duration: 0.25)) {
-                    starPhase = (starPhase + 1) % 3
-                }
-            }
-        }
     }
-
-    private var spinningEarth: some View {
-        GeometryReader { proxy in
-            let size = min(proxy.size.width, proxy.size.height)
-
-            ZStack {
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            colors: [
-                                Color(red: 0.30, green: 0.72, blue: 1.00),
-                                Color(red: 0.03, green: 0.31, blue: 0.70),
-                                Color(red: 0.01, green: 0.08, blue: 0.22)
-                            ],
-                            center: .topLeading,
-                            startRadius: 8,
-                            endRadius: size * 0.62
-                        )
-                    )
-
-                earthContinents(size: size)
-                    .rotationEffect(.degrees(earthSpins ? 360 : 0))
-                    .animation(.linear(duration: 7).repeatForever(autoreverses: false), value: earthSpins)
-                .mask(Circle())
-
-                Circle()
-                    .stroke(Color.white.opacity(0.22), lineWidth: 2)
-
-                Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.white.opacity(0.35), .clear],
-                            startPoint: .topLeading,
-                            endPoint: .center
-                        )
-                    )
-            }
-            .clipShape(Circle())
-            .frame(width: size, height: size)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        }
-    }
-
-    private func earthContinents(size: CGFloat) -> some View {
-        ZStack {
-            Capsule()
-                .fill(Color(red: 0.30, green: 0.68, blue: 0.30))
-                .frame(width: size * 0.45, height: size * 0.20)
-                .offset(x: -size * 0.18, y: -size * 0.21)
-                .rotationEffect(.degrees(-24))
-
-            Circle()
-                .fill(Color(red: 0.42, green: 0.78, blue: 0.35))
-                .frame(width: size * 0.24, height: size * 0.24)
-                .offset(x: size * 0.10, y: -size * 0.12)
-
-            Capsule()
-                .fill(Color(red: 0.27, green: 0.65, blue: 0.32))
-                .frame(width: size * 0.43, height: size * 0.18)
-                .offset(x: size * 0.22, y: size * 0.12)
-                .rotationEffect(.degrees(18))
-
-            Capsule()
-                .fill(Color(red: 0.45, green: 0.78, blue: 0.36))
-                .frame(width: size * 0.18, height: size * 0.33)
-                .offset(x: -size * 0.25, y: size * 0.23)
-                .rotationEffect(.degrees(16))
-
-            Circle()
-                .fill(Color(red: 0.50, green: 0.82, blue: 0.38))
-                .frame(width: size * 0.16, height: size * 0.16)
-                .offset(x: size * 0.00, y: size * 0.30)
-        }
-        .frame(width: size, height: size)
-        .drawingGroup()
-    }
-}
-
-private struct WelcomeStar: Identifiable {
-    let id = UUID()
-    let x: CGFloat
-    let y: CGFloat
-    let size: CGFloat
-    let group: Int
 }
 
 enum ZooTheme {
