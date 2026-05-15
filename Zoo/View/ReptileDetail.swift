@@ -125,7 +125,7 @@ struct ReptileDetail: View {
                     
                     let location = CLLocationCoordinate2D(latitude: self.animalReptile.latitude, longitude: self.animalReptile.longitude)
                     AnimalProfileMap(animalName: animalReptile.name, animalCoordinate: location)
-                        .padding(.bottom, 22)
+                        .animalProfileMapInset()
                 }
                 .padding()
                 .background(animalReptile.typeOverlay().opacity(0.66))

@@ -108,7 +108,7 @@ struct AnimalDetail: View {
                     
                     let location = CLLocationCoordinate2D(latitude: self.animal.latitude, longitude: self.animal.longitude)
                     AnimalProfileMap(animalName: animal.name, animalCoordinate: location)
-                        .padding(.bottom, 22)
+                        .animalProfileMapInset()
                 }
                 
                 .padding(.top)

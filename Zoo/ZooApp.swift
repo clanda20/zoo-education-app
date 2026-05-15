@@ -10,12 +10,176 @@ import MapKit
 
 @main
 struct ZooApp: App {
+    @State private var showWelcome = true
+
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .tint(ZooTheme.primary)
+            Group {
+                if showWelcome {
+                    ZooWelcomeView {
+                        withAnimation(.easeInOut(duration: 0.45)) {
+                            showWelcome = false
+                        }
+                    }
+                } else {
+                    MainView()
+                }
+            }
+            .tint(ZooTheme.primary)
         }
     }
+}
+
+struct ZooWelcomeView: View {
+    let onStart: () -> Void
+
+    @State private var earthSpins = false
+    @State private var starsTwinkle = false
+
+    private let stars: [WelcomeStar] = [
+        .init(x: 0.10, y: 0.15, size: 2.0), .init(x: 0.23, y: 0.09, size: 1.2),
+        .init(x: 0.36, y: 0.19, size: 1.6), .init(x: 0.58, y: 0.10, size: 2.4),
+        .init(x: 0.79, y: 0.17, size: 1.5), .init(x: 0.91, y: 0.08, size: 2.0),
+        .init(x: 0.14, y: 0.37, size: 1.4), .init(x: 0.31, y: 0.31, size: 2.2),
+        .init(x: 0.47, y: 0.43, size: 1.3), .init(x: 0.68, y: 0.35, size: 1.9),
+        .init(x: 0.86, y: 0.46, size: 1.4), .init(x: 0.18, y: 0.67, size: 2.1),
+        .init(x: 0.39, y: 0.75, size: 1.5), .init(x: 0.62, y: 0.66, size: 1.8),
+        .init(x: 0.82, y: 0.78, size: 2.2), .init(x: 0.93, y: 0.61, size: 1.2)
+    ]
+
+    var body: some View {
+        GeometryReader { proxy in
+            ZStack {
+                LinearGradient(
+                    colors: [
+                        Color.black,
+                        Color(red: 0.02, green: 0.04, blue: 0.10),
+                        Color(red: 0.00, green: 0.01, blue: 0.04)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+
+                ForEach(stars) { star in
+                    Circle()
+                        .fill(Color.white.opacity(starsTwinkle ? 0.95 : 0.45))
+                        .frame(width: star.size, height: star.size)
+                        .position(x: proxy.size.width * star.x, y: proxy.size.height * star.y)
+                        .animation(
+                            .easeInOut(duration: 1.8 + star.x).repeatForever(autoreverses: true),
+                            value: starsTwinkle
+                        )
+                }
+
+                VStack(spacing: 26) {
+                    Spacer(minLength: 40)
+
+                    spinningEarth
+                        .frame(width: min(proxy.size.width * 0.52, 260), height: min(proxy.size.width * 0.52, 260))
+                        .shadow(color: Color.blue.opacity(0.45), radius: 30, x: 0, y: 0)
+
+                    VStack(spacing: 10) {
+                        Text("Wildwood Learning Zoo")
+                            .font(.largeTitle.weight(.bold))
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.white)
+
+                        Text("Explore animals, habitats, maps, and the people who care for the zoo.")
+                            .font(.headline)
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.white.opacity(0.78))
+                            .frame(maxWidth: 420)
+                    }
+
+                    Button(action: onStart) {
+                        Text("Enter Zoo")
+                            .font(.headline.weight(.bold))
+                            .foregroundStyle(ZooTheme.primary)
+                            .padding(.horizontal, 28)
+                            .padding(.vertical, 14)
+                            .background(ZooTheme.surface)
+                            .clipShape(Capsule())
+                    }
+                    .buttonStyle(.plain)
+                    .shadow(color: Color.white.opacity(0.24), radius: 16, x: 0, y: 8)
+
+                    Spacer(minLength: 40)
+                }
+                .padding(.horizontal, 28)
+            }
+        }
+        .onAppear {
+            earthSpins = true
+            starsTwinkle = true
+        }
+    }
+
+    private var spinningEarth: some View {
+        ZStack {
+            Circle()
+                .fill(
+                    RadialGradient(
+                        colors: [
+                            Color(red: 0.36, green: 0.77, blue: 1.00),
+                            Color(red: 0.04, green: 0.27, blue: 0.62),
+                            Color(red: 0.01, green: 0.08, blue: 0.20)
+                        ],
+                        center: .topLeading,
+                        startRadius: 10,
+                        endRadius: 150
+                    )
+                )
+
+            ZStack {
+                Capsule()
+                    .fill(Color(red: 0.36, green: 0.74, blue: 0.34))
+                    .frame(width: 92, height: 38)
+                    .offset(x: -34, y: -38)
+                    .rotationEffect(.degrees(-18))
+
+                Capsule()
+                    .fill(Color(red: 0.28, green: 0.65, blue: 0.31))
+                    .frame(width: 76, height: 30)
+                    .offset(x: 42, y: 22)
+                    .rotationEffect(.degrees(24))
+
+                Circle()
+                    .fill(Color(red: 0.47, green: 0.78, blue: 0.36))
+                    .frame(width: 42, height: 42)
+                    .offset(x: -2, y: 54)
+            }
+            .rotation3DEffect(.degrees(earthSpins ? 360 : 0), axis: (x: 0, y: 1, z: 0))
+            .animation(.linear(duration: 5).repeatForever(autoreverses: false), value: earthSpins)
+
+            ForEach([-40, 0, 40], id: \.self) { offset in
+                Ellipse()
+                    .stroke(Color.white.opacity(0.18), lineWidth: 1)
+                    .frame(width: 44 + CGFloat(abs(offset)), height: 210)
+                    .offset(x: CGFloat(offset) * 0.15)
+            }
+
+            Circle()
+                .stroke(Color.white.opacity(0.22), lineWidth: 2)
+
+            Circle()
+                .fill(
+                    LinearGradient(
+                        colors: [Color.white.opacity(0.35), .clear],
+                        startPoint: .topLeading,
+                        endPoint: .center
+                    )
+                )
+        }
+        .clipShape(Circle())
+    }
+}
+
+private struct WelcomeStar: Identifiable {
+    let id = UUID()
+    let x: CGFloat
+    let y: CGFloat
+    let size: CGFloat
 }
 
 enum ZooTheme {
@@ -137,6 +301,12 @@ extension View {
             }
             .clipShape(Capsule())
     }
+
+    func animalProfileMapInset() -> some View {
+        self
+            .padding(.horizontal, 16)
+            .padding(.bottom, 10)
+    }
 }
 
 struct AnimalProfileMap: View {
@@ -147,8 +317,6 @@ struct AnimalProfileMap: View {
     @State private var showExpandedMap = false
 
     @AppStorage(Self.lastVisitedNameKey) private var lastVisitedAnimalName = ZooMapLayout.entranceName
-    private let trailingInset: CGFloat = 16
-    private let bottomInset: CGFloat = 10
     private let mapHeight: CGFloat = 372
 
     init(animalName: String, animalCoordinate: CLLocationCoordinate2D) {
@@ -157,42 +325,36 @@ struct AnimalProfileMap: View {
     }
 
     var body: some View {
-        GeometryReader { proxy in
-            ZStack(alignment: .topTrailing) {
-                InteractiveZooMap(
-                    animals: animalData,
-                    selectedAnimalName: animalName,
-                    visitorName: visitorName,
-                    compact: true
-                )
-                .frame(width: max(proxy.size.width - trailingInset, 0), height: proxy.size.height - bottomInset)
-                .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-                .onTapGesture {
-                    showExpandedMap = true
-                }
+        ZStack(alignment: .topTrailing) {
+            InteractiveZooMap(
+                animals: animalData,
+                selectedAnimalName: animalName,
+                visitorName: visitorName,
+                compact: true
+            )
+            .frame(maxWidth: .infinity, minHeight: mapHeight)
+            .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+            .onTapGesture {
+                showExpandedMap = true
+            }
 
-                Button {
-                    showExpandedMap = true
-                } label: {
-                    Image(systemName: "arrow.up.left.and.arrow.down.right")
-                        .font(.headline.weight(.bold))
-                        .foregroundStyle(ZooTheme.primary)
-                        .padding(10)
-                        .background(ZooTheme.surface.opacity(0.92))
-                        .clipShape(Circle())
-                        .shadow(color: ZooTheme.primary.opacity(0.16), radius: 6, x: 0, y: 3)
-                }
-                .padding(.trailing, trailingInset + 12)
-                .padding(.top, 12)
+            Button {
+                showExpandedMap = true
+            } label: {
+                Image(systemName: "arrow.up.left.and.arrow.down.right")
+                    .font(.headline.weight(.bold))
+                    .foregroundStyle(ZooTheme.primary)
+                    .padding(10)
+                    .background(ZooTheme.surface.opacity(0.92))
+                    .clipShape(Circle())
+                    .shadow(color: ZooTheme.primary.opacity(0.16), radius: 6, x: 0, y: 3)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .overlay(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
-                    .frame(width: max(proxy.size.width - trailingInset, 0), height: proxy.size.height - bottomInset)
-            }
+            .padding(12)
         }
-        .frame(height: mapHeight + bottomInset)
+        .overlay {
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
+        }
         .sheet(isPresented: $showExpandedMap) {
             NavigationStack {
                 InteractiveZooMap(
