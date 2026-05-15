@@ -34,17 +34,17 @@ struct ZooWelcomeView: View {
     let onStart: () -> Void
 
     @State private var earthSpins = false
-    @State private var starsTwinkle = false
+    @State private var starPhase = 0
 
     private let stars: [WelcomeStar] = [
-        .init(x: 0.10, y: 0.15, size: 2.0), .init(x: 0.23, y: 0.09, size: 1.2),
-        .init(x: 0.36, y: 0.19, size: 1.6), .init(x: 0.58, y: 0.10, size: 2.4),
-        .init(x: 0.79, y: 0.17, size: 1.5), .init(x: 0.91, y: 0.08, size: 2.0),
-        .init(x: 0.14, y: 0.37, size: 1.4), .init(x: 0.31, y: 0.31, size: 2.2),
-        .init(x: 0.47, y: 0.43, size: 1.3), .init(x: 0.68, y: 0.35, size: 1.9),
-        .init(x: 0.86, y: 0.46, size: 1.4), .init(x: 0.18, y: 0.67, size: 2.1),
-        .init(x: 0.39, y: 0.75, size: 1.5), .init(x: 0.62, y: 0.66, size: 1.8),
-        .init(x: 0.82, y: 0.78, size: 2.2), .init(x: 0.93, y: 0.61, size: 1.2)
+        .init(x: 0.10, y: 0.15, size: 2.0, group: 0), .init(x: 0.23, y: 0.09, size: 1.2, group: 1),
+        .init(x: 0.36, y: 0.19, size: 1.6, group: 2), .init(x: 0.58, y: 0.10, size: 2.4, group: 0),
+        .init(x: 0.79, y: 0.17, size: 1.5, group: 1), .init(x: 0.91, y: 0.08, size: 2.0, group: 2),
+        .init(x: 0.14, y: 0.37, size: 1.4, group: 1), .init(x: 0.31, y: 0.31, size: 2.2, group: 2),
+        .init(x: 0.47, y: 0.43, size: 1.3, group: 0), .init(x: 0.68, y: 0.35, size: 1.9, group: 1),
+        .init(x: 0.86, y: 0.46, size: 1.4, group: 2), .init(x: 0.18, y: 0.67, size: 2.1, group: 0),
+        .init(x: 0.39, y: 0.75, size: 1.5, group: 1), .init(x: 0.62, y: 0.66, size: 1.8, group: 2),
+        .init(x: 0.82, y: 0.78, size: 2.2, group: 0), .init(x: 0.93, y: 0.61, size: 1.2, group: 1)
     ]
 
     var body: some View {
@@ -63,12 +63,15 @@ struct ZooWelcomeView: View {
 
                 ForEach(stars) { star in
                     Circle()
-                        .fill(Color.white.opacity(starsTwinkle ? 0.95 : 0.45))
-                        .frame(width: star.size, height: star.size)
+                        .fill(Color.white.opacity(star.group == starPhase ? 1.0 : 0.20))
+                        .frame(
+                            width: star.group == starPhase ? star.size * 1.45 : star.size,
+                            height: star.group == starPhase ? star.size * 1.45 : star.size
+                        )
                         .position(x: proxy.size.width * star.x, y: proxy.size.height * star.y)
                         .animation(
-                            .easeInOut(duration: 1.8 + star.x).repeatForever(autoreverses: true),
-                            value: starsTwinkle
+                            .easeInOut(duration: 0.25),
+                            value: starPhase
                         )
                 }
 
@@ -111,67 +114,93 @@ struct ZooWelcomeView: View {
         }
         .onAppear {
             earthSpins = true
-            starsTwinkle = true
+        }
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(1))
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    starPhase = (starPhase + 1) % 3
+                }
+            }
         }
     }
 
     private var spinningEarth: some View {
-        ZStack {
-            Circle()
-                .fill(
-                    RadialGradient(
-                        colors: [
-                            Color(red: 0.36, green: 0.77, blue: 1.00),
-                            Color(red: 0.04, green: 0.27, blue: 0.62),
-                            Color(red: 0.01, green: 0.08, blue: 0.20)
-                        ],
-                        center: .topLeading,
-                        startRadius: 10,
-                        endRadius: 150
-                    )
-                )
+        GeometryReader { proxy in
+            let size = min(proxy.size.width, proxy.size.height)
 
             ZStack {
-                Capsule()
-                    .fill(Color(red: 0.36, green: 0.74, blue: 0.34))
-                    .frame(width: 92, height: 38)
-                    .offset(x: -34, y: -38)
-                    .rotationEffect(.degrees(-18))
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                Color(red: 0.30, green: 0.72, blue: 1.00),
+                                Color(red: 0.03, green: 0.31, blue: 0.70),
+                                Color(red: 0.01, green: 0.08, blue: 0.22)
+                            ],
+                            center: .topLeading,
+                            startRadius: 8,
+                            endRadius: size * 0.62
+                        )
+                    )
 
-                Capsule()
-                    .fill(Color(red: 0.28, green: 0.65, blue: 0.31))
-                    .frame(width: 76, height: 30)
-                    .offset(x: 42, y: 22)
-                    .rotationEffect(.degrees(24))
+                HStack(spacing: size * 0.12) {
+                    earthContinents(size: size)
+                    earthContinents(size: size)
+                }
+                .offset(x: earthSpins ? -size * 0.92 : size * 0.06)
+                .animation(.linear(duration: 4.2).repeatForever(autoreverses: false), value: earthSpins)
+                .mask(Circle())
+
+                ForEach([-40, 0, 40], id: \.self) { offset in
+                    Ellipse()
+                        .stroke(Color.white.opacity(0.18), lineWidth: 1)
+                        .frame(width: 44 + CGFloat(abs(offset)), height: size * 0.86)
+                        .offset(x: CGFloat(offset) * 0.15)
+                }
 
                 Circle()
-                    .fill(Color(red: 0.47, green: 0.78, blue: 0.36))
-                    .frame(width: 42, height: 42)
-                    .offset(x: -2, y: 54)
-            }
-            .rotation3DEffect(.degrees(earthSpins ? 360 : 0), axis: (x: 0, y: 1, z: 0))
-            .animation(.linear(duration: 5).repeatForever(autoreverses: false), value: earthSpins)
+                    .stroke(Color.white.opacity(0.22), lineWidth: 2)
 
-            ForEach([-40, 0, 40], id: \.self) { offset in
-                Ellipse()
-                    .stroke(Color.white.opacity(0.18), lineWidth: 1)
-                    .frame(width: 44 + CGFloat(abs(offset)), height: 210)
-                    .offset(x: CGFloat(offset) * 0.15)
-            }
-
-            Circle()
-                .stroke(Color.white.opacity(0.22), lineWidth: 2)
-
-            Circle()
-                .fill(
-                    LinearGradient(
-                        colors: [Color.white.opacity(0.35), .clear],
-                        startPoint: .topLeading,
-                        endPoint: .center
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.white.opacity(0.35), .clear],
+                            startPoint: .topLeading,
+                            endPoint: .center
+                        )
                     )
-                )
+            }
+            .clipShape(Circle())
         }
-        .clipShape(Circle())
+    }
+
+    private func earthContinents(size: CGFloat) -> some View {
+        ZStack {
+            Capsule()
+                .fill(Color(red: 0.34, green: 0.72, blue: 0.34))
+                .frame(width: size * 0.38, height: size * 0.16)
+                .offset(x: -size * 0.24, y: -size * 0.18)
+                .rotationEffect(.degrees(-18))
+
+            Circle()
+                .fill(Color(red: 0.42, green: 0.78, blue: 0.35))
+                .frame(width: size * 0.20, height: size * 0.20)
+                .offset(x: -size * 0.03, y: -size * 0.05)
+
+            Capsule()
+                .fill(Color(red: 0.25, green: 0.64, blue: 0.31))
+                .frame(width: size * 0.34, height: size * 0.14)
+                .offset(x: size * 0.26, y: size * 0.14)
+                .rotationEffect(.degrees(22))
+
+            Capsule()
+                .fill(Color(red: 0.45, green: 0.78, blue: 0.36))
+                .frame(width: size * 0.16, height: size * 0.28)
+                .offset(x: -size * 0.32, y: size * 0.20)
+                .rotationEffect(.degrees(10))
+        }
+        .frame(width: size * 0.78, height: size)
     }
 }
 
@@ -180,6 +209,7 @@ private struct WelcomeStar: Identifiable {
     let x: CGFloat
     let y: CGFloat
     let size: CGFloat
+    let group: Int
 }
 
 enum ZooTheme {
@@ -304,8 +334,8 @@ extension View {
 
     func animalProfileMapInset() -> some View {
         self
-            .padding(.horizontal, 16)
-            .padding(.bottom, 10)
+            .padding(.horizontal, 24)
+            .padding(.bottom, 14)
     }
 }
 
@@ -355,6 +385,7 @@ struct AnimalProfileMap: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
         }
+        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .sheet(isPresented: $showExpandedMap) {
             NavigationStack {
                 InteractiveZooMap(
