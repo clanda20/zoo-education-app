@@ -147,6 +147,9 @@ struct AnimalProfileMap: View {
     @State private var showExpandedMap = false
 
     @AppStorage(Self.lastVisitedNameKey) private var lastVisitedAnimalName = ZooMapLayout.entranceName
+    private let trailingInset: CGFloat = 16
+    private let bottomInset: CGFloat = 10
+    private let mapHeight: CGFloat = 372
 
     init(animalName: String, animalCoordinate: CLLocationCoordinate2D) {
         self.animalName = animalName
@@ -154,38 +157,42 @@ struct AnimalProfileMap: View {
     }
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            InteractiveZooMap(
-                animals: animalData,
-                selectedAnimalName: animalName,
-                visitorName: visitorName,
-                compact: true
-            )
-            .frame(maxWidth: .infinity, minHeight: 372)
-            .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .onTapGesture {
-                showExpandedMap = true
-            }
+        GeometryReader { proxy in
+            ZStack(alignment: .topTrailing) {
+                InteractiveZooMap(
+                    animals: animalData,
+                    selectedAnimalName: animalName,
+                    visitorName: visitorName,
+                    compact: true
+                )
+                .frame(width: max(proxy.size.width - trailingInset, 0), height: proxy.size.height - bottomInset)
+                .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                .onTapGesture {
+                    showExpandedMap = true
+                }
 
-            Button {
-                showExpandedMap = true
-            } label: {
-                Image(systemName: "arrow.up.left.and.arrow.down.right")
-                    .font(.headline.weight(.bold))
-                    .foregroundStyle(ZooTheme.primary)
-                    .padding(10)
-                    .background(ZooTheme.surface.opacity(0.92))
-                    .clipShape(Circle())
-                    .shadow(color: ZooTheme.primary.opacity(0.16), radius: 6, x: 0, y: 3)
+                Button {
+                    showExpandedMap = true
+                } label: {
+                    Image(systemName: "arrow.up.left.and.arrow.down.right")
+                        .font(.headline.weight(.bold))
+                        .foregroundStyle(ZooTheme.primary)
+                        .padding(10)
+                        .background(ZooTheme.surface.opacity(0.92))
+                        .clipShape(Circle())
+                        .shadow(color: ZooTheme.primary.opacity(0.16), radius: 6, x: 0, y: 3)
+                }
+                .padding(.trailing, trailingInset + 12)
+                .padding(.top, 12)
             }
-            .padding(12)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .overlay(alignment: .topLeading) {
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
+                    .frame(width: max(proxy.size.width - trailingInset, 0), height: proxy.size.height - bottomInset)
+            }
         }
-        .overlay {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(ZooTheme.primary.opacity(0.12), lineWidth: 1)
-        }
-        .padding(.trailing, 16)
-        .padding(.bottom, 10)
+        .frame(height: mapHeight + bottomInset)
         .sheet(isPresented: $showExpandedMap) {
             NavigationStack {
                 InteractiveZooMap(
