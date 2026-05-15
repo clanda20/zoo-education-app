@@ -16,10 +16,10 @@ struct ZooKeeperView: View {
     var zoovolunteer: [ZooVolunteer] = ZooVolunteerData
     var zooAdmin:[ZooAdmin] = zooAdminData
     
-    let rows = Array(repeating: GridItem(.fixed(120), spacing: 0),
-                     count: 1)
-    let rowsVolunteer = Array(repeating: GridItem(.fixed(120), spacing: 0),
-                     count: 2)
+    private let workerRows = Array(
+        repeating: GridItem(.fixed(132), spacing: 14),
+        count: 2
+    )
     
     // MARK: - BODY
     
@@ -27,19 +27,18 @@ struct ZooKeeperView: View {
         NavigationView {
             ScrollView {
                 Section{
-                    ScrollView( .horizontal){
-                        LazyHStack {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: workerRows, spacing: 14) {
                             ForEach(zookeeper.shuffled()) { item in
                                 NavigationLink(destination: ZooKeeperDatailView(zooKeeper: item)) {
                                     ZooKeeperRowView(zooKeeper: item)
-                                    
                                 }
                             }
-                            .padding()
                         }
-                        
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 12)
                     }
-                    .frame(height: 180)
+                    .frame(height: 304)
                     .background(ZooTheme.background)
                 } header: {
                     Text("Zoo Keepers")
@@ -47,16 +46,18 @@ struct ZooKeeperView: View {
                     
                      }
                 Section {
-                    ScrollView (.horizontal){
-                        LazyHGrid(rows: rows, spacing: 0) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: workerRows, spacing: 14) {
                             ForEach(zooAdmin.shuffled()) { item in
                                 NavigationLink(destination: ZooAdminDetailView(zooAdmin: item)) {
                                     ZooAdminRowView(zooAdmin: item)
-                                        .padding()
                                 }
                             }
                         }
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 12)
                     }
+                    .frame(height: 304)
                     .background(ZooTheme.background)
                 }  header: {
                     Text("Zoo Administrators")
@@ -65,16 +66,18 @@ struct ZooKeeperView: View {
                 }
                 
                 Section {
-                    ScrollView (.horizontal){
-                        LazyHGrid(rows: rowsVolunteer, spacing: 0) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: workerRows, spacing: 14) {
                             ForEach(zoovolunteer.shuffled()) { item in
                                 NavigationLink(destination: ZooVolunteerDatailView(zooVolunteer: item)) {
                                     ZooVolunteerRowView(zooVolunteer: item)
-                                        .padding()
                                 }
                             }
                         }
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 12)
                     }
+                    .frame(height: 304)
                     .background(ZooTheme.background)
                 }  header: {
                     Text("Zoo Volunteers")

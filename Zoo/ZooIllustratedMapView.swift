@@ -62,12 +62,13 @@ struct InteractiveZooMap: View {
 
     private var minScale: CGFloat { compact ? 1.0 : 0.86 }
     private var maxScale: CGFloat { compact ? 3.2 : 2.2 }
+    private var resetScale: CGFloat { compact ? 1.26 : 1.08 }
 
     var body: some View {
         GeometryReader { proxy in
             let canvasSize = CGSize(
-                width: compact ? proxy.size.width * 1.85 : max(proxy.size.width, 760),
-                height: compact ? max(proxy.size.height * 1.35, 520) : max(proxy.size.height, 1120)
+                width: compact ? proxy.size.width * 2.05 : max(proxy.size.width * 1.08, 820),
+                height: compact ? max(proxy.size.height * 1.50, 580) : max(proxy.size.height * 1.08, 1160)
             )
 
             ZStack {
@@ -115,8 +116,8 @@ struct InteractiveZooMap: View {
             }
             .onChange(of: proxy.size) { _, newSize in
                 let newCanvasSize = CGSize(
-                    width: compact ? newSize.width * 1.85 : max(newSize.width, 760),
-                    height: compact ? max(newSize.height * 1.35, 520) : max(newSize.height, 1120)
+                    width: compact ? newSize.width * 2.05 : max(newSize.width * 1.08, 820),
+                    height: compact ? max(newSize.height * 1.50, 580) : max(newSize.height * 1.08, 1160)
                 )
                 resetView(in: newSize, canvasSize: newCanvasSize)
             }
@@ -125,26 +126,10 @@ struct InteractiveZooMap: View {
     }
 
     private func resetView(in viewportSize: CGSize, canvasSize: CGSize) {
-        guard let selectedAnimalName else {
-            scale = 1
-            lastScale = 1
-            offset = .zero
-            lastOffset = .zero
-            return
-        }
-
-        let focusScale: CGFloat = compact ? 1.42 : 1.18
-        let focusAnchor = CGPoint(x: compact ? 0.58 : 0.52, y: compact ? 0.54 : 0.50)
-        let focusPoint = ZooMapLayout.point(for: selectedAnimalName)
-        let centeredOffset = CGSize(
-            width: (focusAnchor.x - focusPoint.x) * canvasSize.width * focusScale,
-            height: (focusAnchor.y - focusPoint.y) * canvasSize.height * focusScale
-        )
-
-        scale = focusScale
-        lastScale = focusScale
-        offset = centeredOffset
-        lastOffset = centeredOffset
+        scale = resetScale
+        lastScale = resetScale
+        offset = .zero
+        lastOffset = .zero
     }
 
     private func mapControls(proxySize: CGSize, canvasSize: CGSize) -> some View {

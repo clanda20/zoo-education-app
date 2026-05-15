@@ -13,7 +13,7 @@ struct ZooKeeperRowView: View {
         .renderingMode(.original)
         .resizable()
         .scaledToFit()
-        .frame(width: 120, height: 120, alignment: .center)
+        .frame(width: 82, height: 104, alignment: .center)
         .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
         .cornerRadius(8)
       
@@ -25,8 +25,10 @@ struct ZooKeeperRowView: View {
           Text(zooKeeper.title)
           .font(.caption)
           .foregroundColor(ZooTheme.mutedInk)
+          .lineLimit(1)
       }
     } //: HSTACK
+    .frame(width: 244, height: 108, alignment: .leading)
     .zooCardStyle(border: ZooTheme.keeperAccent)
   }
 }
