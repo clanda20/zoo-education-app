@@ -154,7 +154,7 @@ struct AnimalProfileMap: View {
                 visitorName: visitorName,
                 compact: true
             )
-            .frame(maxWidth: .infinity, minHeight: 340)
+            .frame(maxWidth: .infinity, minHeight: 372)
             .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
             .onTapGesture {
                 showExpandedMap = true

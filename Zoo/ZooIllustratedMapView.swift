@@ -133,11 +133,12 @@ struct InteractiveZooMap: View {
             return
         }
 
-        let focusScale: CGFloat = compact ? 1.55 : 1.22
+        let focusScale: CGFloat = compact ? 1.42 : 1.18
+        let focusAnchor = CGPoint(x: compact ? 0.58 : 0.52, y: compact ? 0.54 : 0.50)
         let focusPoint = ZooMapLayout.point(for: selectedAnimalName)
         let centeredOffset = CGSize(
-            width: -((focusPoint.x - 0.5) * canvasSize.width * focusScale),
-            height: -((focusPoint.y - 0.5) * canvasSize.height * focusScale)
+            width: (focusAnchor.x - focusPoint.x) * canvasSize.width * focusScale,
+            height: (focusAnchor.y - focusPoint.y) * canvasSize.height * focusScale
         )
 
         scale = focusScale
