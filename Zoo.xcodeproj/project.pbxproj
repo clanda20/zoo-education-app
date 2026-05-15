@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		182128792B1978E80060A5B2 /* ZooMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182128782B1978E80060A5B2 /* ZooMapView.swift */; };
+		1821287B2B1A98490060A5B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821287A2B1A98490060A5B2 /* MainView.swift */; };
+		1821287F2B1AB4720060A5B2 /* AnimalLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821287E2B1AB4720060A5B2 /* AnimalLocation.swift */; };
+		1823E5622B1903FC00B07BB1 /* AnimalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E5612B1903FC00B07BB1 /* AnimalDetail.swift */; };
+		1866C6562B17E1190061EE28 /* animals.json in Resources */ = {isa = PBXBuildFile; fileRef = 1866C6552B17E1190061EE28 /* animals.json */; };
+		1866C6582B1819980061EE28 /* AnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1866C6572B1819980061EE28 /* AnimalController.swift */; };
+		1866C65C2B1827570061EE28 /* AnimalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1866C65B2B1827570061EE28 /* AnimalRow.swift */; };
+		18A57EA92B1E6A7600F075A7 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A57EA82B1E6A7600F075A7 /* MapAnnotationView.swift */; };
+		18A909122B24409500E536F5 /* BirdDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A909112B24409500E536F5 /* BirdDetail.swift */; };
+		18A909142B24411400E536F5 /* BirdData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A909132B24411400E536F5 /* BirdData.swift */; };
+		18A909162B2447CB00E536F5 /* FishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A909152B2447CB00E536F5 /* FishData.swift */; };
+		18A909182B2447EF00E536F5 /* FishDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A909172B2447EF00E536F5 /* FishDetail.swift */; };
+		18A9091A2B244DF300E536F5 /* AmphibianData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A909192B244DF300E536F5 /* AmphibianData.swift */; };
+		18A9091C2B244ECD00E536F5 /* AmphibianDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9091B2B244ECD00E536F5 /* AmphibianDetail.swift */; };
+		18A9091E2B24511100E536F5 /* ReptileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9091D2B24511100E536F5 /* ReptileData.swift */; };
+		18A909202B2452BE00E536F5 /* ReptileDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9091F2B2452BE00E536F5 /* ReptileDetail.swift */; };
+		18E059C72B1F9FA900F3912F /* ZooKeeperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059C62B1F9FA900F3912F /* ZooKeeperData.swift */; };
+		18E059C92B1FA03200F3912F /* ZooKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059C82B1FA03200F3912F /* ZooKeeper.swift */; };
+		18E059CC2B1FA06700F3912F /* Workers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059CB2B1FA06700F3912F /* Workers.swift */; };
+		18E059CF2B1FA66F00F3912F /* ZooKeeperRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059CE2B1FA66E00F3912F /* ZooKeeperRowView.swift */; };
+		18E059D22B1FA71700F3912F /* ZooKeeperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059D12B1FA71700F3912F /* ZooKeeperView.swift */; };
+		18E059D42B1FA7D700F3912F /* ZooKeeperDatailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059D32B1FA7D700F3912F /* ZooKeeperDatailView.swift */; };
+		18E059D82B1FA86B00F3912F /* ZooKeeperHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059D72B1FA86B00F3912F /* ZooKeeperHeaderView.swift */; };
+		18E059DC2B1FDC1F00F3912F /* ZooVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059DB2B1FDC1F00F3912F /* ZooVolunteer.swift */; };
+		18E059DE2B1FE79200F3912F /* ZooVolunteerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059DD2B1FE79200F3912F /* ZooVolunteerData.swift */; };
+		18E059E02B1FEAD000F3912F /* ZooVolunteerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059DF2B1FEAD000F3912F /* ZooVolunteerHeaderView.swift */; };
+		18E059E22B1FECAD00F3912F /* ZooVolunteerDatailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059E12B1FECAD00F3912F /* ZooVolunteerDatailView.swift */; };
+		18E059E42B1FF36C00F3912F /* ZooVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059E32B1FF36C00F3912F /* ZooVolunteerView.swift */; };
+		18E059E62B1FF49500F3912F /* ZooVolunteerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059E52B1FF49500F3912F /* ZooVolunteerRowView.swift */; };
+		18EBDC412B15B11500F986C9 /* ZooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC402B15B11500F986C9 /* ZooApp.swift */; };
+		18EBDC432B15B11500F986C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC422B15B11500F986C9 /* ContentView.swift */; };
+		18EBDC452B15B11700F986C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EBDC442B15B11700F986C9 /* Assets.xcassets */; };
+		18EBDC482B15B11700F986C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EBDC472B15B11700F986C9 /* Preview Assets.xcassets */; };
+		18EBDC4F2B15C5F600F986C9 /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC4E2B15C5F600F986C9 /* Animals.swift */; };
+		18EBDC512B16B05600F986C9 /* Mammals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC502B16B05600F986C9 /* Mammals.swift */; };
+		18EBDC532B16B12B00F986C9 /* Fishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC522B16B12B00F986C9 /* Fishes.swift */; };
+		18EBDC552B16B16000F986C9 /* Reptiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC542B16B16000F986C9 /* Reptiles.swift */; };
+		18EBDC572B16B17F00F986C9 /* Amphibians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC562B16B17F00F986C9 /* Amphibians.swift */; };
+		18EBDC592B16B26300F986C9 /* Birds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBDC582B16B26300F986C9 /* Birds.swift */; };
+		18F942C12B20B7300083728B /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942C02B20B7300083728B /* AnimalData.swift */; };
+		18F942C32B20B8160083728B /* AnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942C22B20B8160083728B /* AnimalModel.swift */; };
+		18F942C52B20B9910083728B /* ZooAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942C42B20B9910083728B /* ZooAnimals.swift */; };
+		18F942C72B210B1A0083728B /* ZooAdministative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942C62B210B1A0083728B /* ZooAdministative.swift */; };
+		18F942C92B2144E30083728B /* ZoodAdminHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942C82B2144E30083728B /* ZoodAdminHeaderView.swift */; };
+		18F942CB2B2145D30083728B /* ZooAdminData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942CA2B2145D30083728B /* ZooAdminData.swift */; };
+		18F942CD2B2149AC0083728B /* ZooAdminDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942CC2B2149AB0083728B /* ZooAdminDetailView.swift */; };
+		18F942CF2B214B880083728B /* ZooAdminRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942CE2B214B880083728B /* ZooAdminRowView.swift */; };
+		18F942D12B2155540083728B /* MammalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942D02B2155540083728B /* MammalData.swift */; };
+		18F942D32B21558E0083728B /* MammalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942D22B21558E0083728B /* MammalRow.swift */; };
+		18F942D52B215CE00083728B /* MammalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942D42B215CE00083728B /* MammalDetail.swift */; };
+		18F942D72B215DC60083728B /* ClasseslContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942D62B215DC60083728B /* ClasseslContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		182128782B1978E80060A5B2 /* ZooMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooMapView.swift; sourceTree = "<group>"; };
+		1821287A2B1A98490060A5B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1821287E2B1AB4720060A5B2 /* AnimalLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalLocation.swift; sourceTree = "<group>"; };
+		1823E5612B1903FC00B07BB1 /* AnimalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetail.swift; sourceTree = "<group>"; };
+		1866C6552B17E1190061EE28 /* animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animals.json; sourceTree = SOURCE_ROOT; };
+		1866C6572B1819980061EE28 /* AnimalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalController.swift; sourceTree = "<group>"; };
+		1866C65B2B1827570061EE28 /* AnimalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRow.swift; sourceTree = "<group>"; };
+		18A57EA82B1E6A7600F075A7 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		18A909112B24409500E536F5 /* BirdDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdDetail.swift; sourceTree = "<group>"; };
+		18A909132B24411400E536F5 /* BirdData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdData.swift; sourceTree = "<group>"; };
+		18A909152B2447CB00E536F5 /* FishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishData.swift; sourceTree = "<group>"; };
+		18A909172B2447EF00E536F5 /* FishDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetail.swift; sourceTree = "<group>"; };
+		18A909192B244DF300E536F5 /* AmphibianData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmphibianData.swift; sourceTree = "<group>"; };
+		18A9091B2B244ECD00E536F5 /* AmphibianDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmphibianDetail.swift; sourceTree = "<group>"; };
+		18A9091D2B24511100E536F5 /* ReptileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReptileData.swift; sourceTree = "<group>"; };
+		18A9091F2B2452BE00E536F5 /* ReptileDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReptileDetail.swift; sourceTree = "<group>"; };
+		18E059C62B1F9FA900F3912F /* ZooKeeperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeperData.swift; sourceTree = "<group>"; };
+		18E059C82B1FA03200F3912F /* ZooKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeper.swift; sourceTree = "<group>"; };
+		18E059CB2B1FA06700F3912F /* Workers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workers.swift; sourceTree = "<group>"; };
+		18E059CE2B1FA66E00F3912F /* ZooKeeperRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeperRowView.swift; sourceTree = "<group>"; };
+		18E059D12B1FA71700F3912F /* ZooKeeperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeperView.swift; sourceTree = "<group>"; };
+		18E059D32B1FA7D700F3912F /* ZooKeeperDatailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeperDatailView.swift; sourceTree = "<group>"; };
+		18E059D72B1FA86B00F3912F /* ZooKeeperHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeperHeaderView.swift; sourceTree = "<group>"; };
+		18E059DB2B1FDC1F00F3912F /* ZooVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteer.swift; sourceTree = "<group>"; };
+		18E059DD2B1FE79200F3912F /* ZooVolunteerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerData.swift; sourceTree = "<group>"; };
+		18E059DF2B1FEAD000F3912F /* ZooVolunteerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerHeaderView.swift; sourceTree = "<group>"; };
+		18E059E12B1FECAD00F3912F /* ZooVolunteerDatailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerDatailView.swift; sourceTree = "<group>"; };
+		18E059E32B1FF36C00F3912F /* ZooVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerView.swift; sourceTree = "<group>"; };
+		18E059E52B1FF49500F3912F /* ZooVolunteerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerRowView.swift; sourceTree = "<group>"; };
+		18EBDC3D2B15B11500F986C9 /* Zoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18EBDC402B15B11500F986C9 /* ZooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooApp.swift; sourceTree = "<group>"; };
+		18EBDC422B15B11500F986C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18EBDC442B15B11700F986C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18EBDC472B15B11700F986C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		18EBDC4E2B15C5F600F986C9 /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
+		18EBDC502B16B05600F986C9 /* Mammals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mammals.swift; sourceTree = "<group>"; };
+		18EBDC522B16B12B00F986C9 /* Fishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fishes.swift; sourceTree = "<group>"; };
+		18EBDC542B16B16000F986C9 /* Reptiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reptiles.swift; sourceTree = "<group>"; };
+		18EBDC562B16B17F00F986C9 /* Amphibians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amphibians.swift; sourceTree = "<group>"; };
+		18EBDC582B16B26300F986C9 /* Birds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birds.swift; sourceTree = "<group>"; };
+		18F942C02B20B7300083728B /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
+		18F942C22B20B8160083728B /* AnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalModel.swift; sourceTree = "<group>"; };
+		18F942C42B20B9910083728B /* ZooAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooAnimals.swift; sourceTree = "<group>"; };
+		18F942C62B210B1A0083728B /* ZooAdministative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooAdministative.swift; sourceTree = "<group>"; };
+		18F942C82B2144E30083728B /* ZoodAdminHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoodAdminHeaderView.swift; sourceTree = "<group>"; };
+		18F942CA2B2145D30083728B /* ZooAdminData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooAdminData.swift; sourceTree = "<group>"; };
+		18F942CC2B2149AB0083728B /* ZooAdminDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooAdminDetailView.swift; sourceTree = "<group>"; };
+		18F942CE2B214B880083728B /* ZooAdminRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooAdminRowView.swift; sourceTree = "<group>"; };
+		18F942D02B2155540083728B /* MammalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MammalData.swift; sourceTree = "<group>"; };
+		18F942D22B21558E0083728B /* MammalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MammalRow.swift; sourceTree = "<group>"; };
+		18F942D42B215CE00083728B /* MammalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MammalDetail.swift; sourceTree = "<group>"; };
+		18F942D62B215DC60083728B /* ClasseslContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasseslContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18EBDC3A2B15B11500F986C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18A9090E2B242AC700E536F5 /* AmimalList */ = {
+			isa = PBXGroup;
+			children = (
+				1866C6572B1819980061EE28 /* AnimalController.swift */,
+				18EBDC422B15B11500F986C9 /* ContentView.swift */,
+				1823E5612B1903FC00B07BB1 /* AnimalDetail.swift */,
+			);
+			path = AmimalList;
+			sourceTree = "<group>";
+		};
+		18A9090F2B242B4700E536F5 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				18F942D62B215DC60083728B /* ClasseslContentView.swift */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
+		18A909102B242C1700E536F5 /* workers */ = {
+			isa = PBXGroup;
+			children = (
+				18E059D12B1FA71700F3912F /* ZooKeeperView.swift */,
+				18E059E32B1FF36C00F3912F /* ZooVolunteerView.swift */,
+				18E059CE2B1FA66E00F3912F /* ZooKeeperRowView.swift */,
+				18E059E52B1FF49500F3912F /* ZooVolunteerRowView.swift */,
+				18F942CE2B214B880083728B /* ZooAdminRowView.swift */,
+				18E059D32B1FA7D700F3912F /* ZooKeeperDatailView.swift */,
+				18E059E12B1FECAD00F3912F /* ZooVolunteerDatailView.swift */,
+				18F942CC2B2149AB0083728B /* ZooAdminDetailView.swift */,
+				18E059D72B1FA86B00F3912F /* ZooKeeperHeaderView.swift */,
+				18E059DF2B1FEAD000F3912F /* ZooVolunteerHeaderView.swift */,
+				18F942C82B2144E30083728B /* ZoodAdminHeaderView.swift */,
+			);
+			path = workers;
+			sourceTree = "<group>";
+		};
+		18E059CA2B1FA04C00F3912F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1821287E2B1AB4720060A5B2 /* AnimalLocation.swift */,
+				18EBDC4E2B15C5F600F986C9 /* Animals.swift */,
+				18E059CB2B1FA06700F3912F /* Workers.swift */,
+				18E059C82B1FA03200F3912F /* ZooKeeper.swift */,
+				18F942C62B210B1A0083728B /* ZooAdministative.swift */,
+				18E059DB2B1FDC1F00F3912F /* ZooVolunteer.swift */,
+				18F942C22B20B8160083728B /* AnimalModel.swift */,
+				18F942C42B20B9910083728B /* ZooAnimals.swift */,
+				18EBDC502B16B05600F986C9 /* Mammals.swift */,
+				18EBDC582B16B26300F986C9 /* Birds.swift */,
+				18EBDC522B16B12B00F986C9 /* Fishes.swift */,
+				18EBDC562B16B17F00F986C9 /* Amphibians.swift */,
+				18EBDC542B16B16000F986C9 /* Reptiles.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18E059CD2B1FA07C00F3912F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				18E059C62B1F9FA900F3912F /* ZooKeeperData.swift */,
+				18E059DD2B1FE79200F3912F /* ZooVolunteerData.swift */,
+				18F942CA2B2145D30083728B /* ZooAdminData.swift */,
+				18F942C02B20B7300083728B /* AnimalData.swift */,
+				18F942D02B2155540083728B /* MammalData.swift */,
+				18A909132B24411400E536F5 /* BirdData.swift */,
+				18A909152B2447CB00E536F5 /* FishData.swift */,
+				18A909192B244DF300E536F5 /* AmphibianData.swift */,
+				18A9091D2B24511100E536F5 /* ReptileData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		18E059D02B1FA67600F3912F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1821287A2B1A98490060A5B2 /* MainView.swift */,
+				18A9090F2B242B4700E536F5 /* class */,
+				18A909102B242C1700E536F5 /* workers */,
+				18F942D42B215CE00083728B /* MammalDetail.swift */,
+				18A909112B24409500E536F5 /* BirdDetail.swift */,
+				18A909172B2447EF00E536F5 /* FishDetail.swift */,
+				18A9091B2B244ECD00E536F5 /* AmphibianDetail.swift */,
+				18A9091F2B2452BE00E536F5 /* ReptileDetail.swift */,
+				1866C65B2B1827570061EE28 /* AnimalRow.swift */,
+				18F942D22B21558E0083728B /* MammalRow.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18EBDC342B15B11500F986C9 = {
+			isa = PBXGroup;
+			children = (
+				18EBDC3F2B15B11500F986C9 /* Zoo */,
+				18EBDC3E2B15B11500F986C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18EBDC3E2B15B11500F986C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18EBDC3D2B15B11500F986C9 /* Zoo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18EBDC3F2B15B11500F986C9 /* Zoo */ = {
+			isa = PBXGroup;
+			children = (
+				18EBDC402B15B11500F986C9 /* ZooApp.swift */,
+				182128782B1978E80060A5B2 /* ZooMapView.swift */,
+				18A57EA82B1E6A7600F075A7 /* MapAnnotationView.swift */,
+				18A9090E2B242AC700E536F5 /* AmimalList */,
+				18E059D02B1FA67600F3912F /* View */,
+				18E059CD2B1FA07C00F3912F /* Data */,
+				18E059CA2B1FA04C00F3912F /* Model */,
+				18EBDC442B15B11700F986C9 /* Assets.xcassets */,
+				1866C6552B17E1190061EE28 /* animals.json */,
+				18EBDC462B15B11700F986C9 /* Preview Content */,
+			);
+			path = Zoo;
+			sourceTree = "<group>";
+		};
+		18EBDC462B15B11700F986C9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				18EBDC472B15B11700F986C9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18EBDC3C2B15B11500F986C9 /* Zoo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18EBDC4B2B15B11700F986C9 /* Build configuration list for PBXNativeTarget "Zoo" */;
+			buildPhases = (
+				18EBDC392B15B11500F986C9 /* Sources */,
+				18EBDC3A2B15B11500F986C9 /* Frameworks */,
+				18EBDC3B2B15B11500F986C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zoo;
+			productName = Zoo;
+			productReference = 18EBDC3D2B15B11500F986C9 /* Zoo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18EBDC352B15B11500F986C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					18EBDC3C2B15B11500F986C9 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 18EBDC382B15B11500F986C9 /* Build configuration list for PBXProject "Zoo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18EBDC342B15B11500F986C9;
+			productRefGroup = 18EBDC3E2B15B11500F986C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18EBDC3C2B15B11500F986C9 /* Zoo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18EBDC3B2B15B11500F986C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1866C6562B17E1190061EE28 /* animals.json in Resources */,
+				18EBDC482B15B11700F986C9 /* Preview Assets.xcassets in Resources */,
+				18EBDC452B15B11700F986C9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18EBDC392B15B11500F986C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18E059D42B1FA7D700F3912F /* ZooKeeperDatailView.swift in Sources */,
+				18F942CB2B2145D30083728B /* ZooAdminData.swift in Sources */,
+				18EBDC532B16B12B00F986C9 /* Fishes.swift in Sources */,
+				1821287B2B1A98490060A5B2 /* MainView.swift in Sources */,
+				18F942C92B2144E30083728B /* ZoodAdminHeaderView.swift in Sources */,
+				18E059C72B1F9FA900F3912F /* ZooKeeperData.swift in Sources */,
+				18E059CC2B1FA06700F3912F /* Workers.swift in Sources */,
+				18A9091E2B24511100E536F5 /* ReptileData.swift in Sources */,
+				182128792B1978E80060A5B2 /* ZooMapView.swift in Sources */,
+				18A909182B2447EF00E536F5 /* FishDetail.swift in Sources */,
+				18F942D32B21558E0083728B /* MammalRow.swift in Sources */,
+				18A909122B24409500E536F5 /* BirdDetail.swift in Sources */,
+				18E059E42B1FF36C00F3912F /* ZooVolunteerView.swift in Sources */,
+				18A909162B2447CB00E536F5 /* FishData.swift in Sources */,
+				18F942C52B20B9910083728B /* ZooAnimals.swift in Sources */,
+				18E059D22B1FA71700F3912F /* ZooKeeperView.swift in Sources */,
+				18EBDC572B16B17F00F986C9 /* Amphibians.swift in Sources */,
+				18EBDC592B16B26300F986C9 /* Birds.swift in Sources */,
+				18A57EA92B1E6A7600F075A7 /* MapAnnotationView.swift in Sources */,
+				18EBDC552B16B16000F986C9 /* Reptiles.swift in Sources */,
+				18E059CF2B1FA66F00F3912F /* ZooKeeperRowView.swift in Sources */,
+				18A9091C2B244ECD00E536F5 /* AmphibianDetail.swift in Sources */,
+				18A909202B2452BE00E536F5 /* ReptileDetail.swift in Sources */,
+				1866C65C2B1827570061EE28 /* AnimalRow.swift in Sources */,
+				18F942C32B20B8160083728B /* AnimalModel.swift in Sources */,
+				18A909142B24411400E536F5 /* BirdData.swift in Sources */,
+				18E059D82B1FA86B00F3912F /* ZooKeeperHeaderView.swift in Sources */,
+				18F942CF2B214B880083728B /* ZooAdminRowView.swift in Sources */,
+				18F942C72B210B1A0083728B /* ZooAdministative.swift in Sources */,
+				18E059DE2B1FE79200F3912F /* ZooVolunteerData.swift in Sources */,
+				18F942CD2B2149AC0083728B /* ZooAdminDetailView.swift in Sources */,
+				18E059DC2B1FDC1F00F3912F /* ZooVolunteer.swift in Sources */,
+				18EBDC512B16B05600F986C9 /* Mammals.swift in Sources */,
+				18F942C12B20B7300083728B /* AnimalData.swift in Sources */,
+				1821287F2B1AB4720060A5B2 /* AnimalLocation.swift in Sources */,
+				18F942D72B215DC60083728B /* ClasseslContentView.swift in Sources */,
+				18F942D52B215CE00083728B /* MammalDetail.swift in Sources */,
+				18EBDC432B15B11500F986C9 /* ContentView.swift in Sources */,
+				1866C6582B1819980061EE28 /* AnimalController.swift in Sources */,
+				18A9091A2B244DF300E536F5 /* AmphibianData.swift in Sources */,
+				18EBDC4F2B15C5F600F986C9 /* Animals.swift in Sources */,
+				18E059E62B1FF49500F3912F /* ZooVolunteerRowView.swift in Sources */,
+				18E059E22B1FECAD00F3912F /* ZooVolunteerDatailView.swift in Sources */,
+				18EBDC412B15B11500F986C9 /* ZooApp.swift in Sources */,
+				18F942D12B2155540083728B /* MammalData.swift in Sources */,
+				18E059C92B1FA03200F3912F /* ZooKeeper.swift in Sources */,
+				1823E5622B1903FC00B07BB1 /* AnimalDetail.swift in Sources */,
+				18E059E02B1FEAD000F3912F /* ZooVolunteerHeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		18EBDC492B15B11700F986C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		18EBDC4A2B15B11700F986C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18EBDC4C2B15B11700F986C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Zoo/Preview Content\"";
+				DEVELOPMENT_TEAM = ZFRU6SA44A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.poquito.Zoo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18EBDC4D2B15B11700F986C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Zoo/Preview Content\"";
+				DEVELOPMENT_TEAM = ZFRU6SA44A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.poquito.Zoo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18EBDC382B15B11500F986C9 /* Build configuration list for PBXProject "Zoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18EBDC492B15B11700F986C9 /* Debug */,
+				18EBDC4A2B15B11700F986C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18EBDC4B2B15B11700F986C9 /* Build configuration list for PBXNativeTarget "Zoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18EBDC4C2B15B11700F986C9 /* Debug */,
+				18EBDC4D2B15B11700F986C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18EBDC352B15B11500F986C9 /* Project object */;
+}
