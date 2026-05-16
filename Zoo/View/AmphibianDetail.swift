@@ -83,13 +83,17 @@ struct AmphibianDetail: View {
                         title: "Meet the Zoo Keeper",
                         name: animalAmphibian.keeper.title,
                         image: animalAmphibian.keeper.image
-                    )
+                    ) {
+                        ZooKeeperDatailView(zooKeeper: animalAmphibian.keeper)
+                    }
                     
                     AnimalProfileStaffView(
                         title: "Meet the Zoo Volunteers",
                         name: animalAmphibian.volunteer.title,
                         image: animalAmphibian.volunteer.image
-                    )
+                    ) {
+                        ZooVolunteerDatailView(zooVolunteer: animalAmphibian.volunteer)
+                    }
                     
                     
                     Text("Map:")

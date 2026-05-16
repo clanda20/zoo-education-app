@@ -146,10 +146,18 @@ enum ZooTheme {
     }
 }
 
-struct AnimalProfileStaffView: View {
+struct AnimalProfileStaffView<Destination: View>: View {
     let title: String
     let name: String
     let image: String
+    let destination: Destination
+
+    init(title: String, name: String, image: String, @ViewBuilder destination: () -> Destination) {
+        self.title = title
+        self.name = name
+        self.image = image
+        self.destination = destination()
+    }
 
     var body: some View {
         VStack(spacing: 10) {
@@ -157,17 +165,23 @@ struct AnimalProfileStaffView: View {
                 .font(.title2)
                 .bold()
 
-            Image(image)
-                .renderingMode(.original)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 120, height: 120, alignment: .center)
-                .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
-                .cornerRadius(8)
+            NavigationLink(destination: destination) {
+                VStack(spacing: 10) {
+                    Image(image)
+                        .renderingMode(.original)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 120, height: 120, alignment: .center)
+                        .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
+                        .cornerRadius(8)
 
-            Text(name)
-                .font(.headline.weight(.semibold))
-                .foregroundStyle(ZooTheme.ink)
+                    Text(name)
+                        .font(.title2)
+                        .bold()
+                        .foregroundStyle(ZooTheme.ink)
+                }
+            }
+            .buttonStyle(.plain)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 6)
