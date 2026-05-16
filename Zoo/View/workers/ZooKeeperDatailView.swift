@@ -1,5 +1,5 @@
 //
-//  FruitDatailView.swift
+//  ZooKeeperDetailView.swift
 //  Zoo
 //
 //  Created by christian landa on 12/5/23.

@@ -1,5 +1,5 @@
 //
-//  FruitModel.swift
+//  ZooKeeper.swift
 //  Zoo
 //
 //  Created by christian landa on 12/5/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// MARK: - FRUITS DATA MODEL
+// MARK: - ZOO KEEPER DATA MODEL
 
 class ZooKeeper: Worker, Identifiable {
     
@@ -19,4 +19,3 @@ class ZooKeeper: Worker, Identifiable {
         
     }
 }
-
