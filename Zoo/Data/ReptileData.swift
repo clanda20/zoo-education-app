@@ -19,8 +19,8 @@ let reptileData: [Reptiles] = [
             latitude: 33.097822,
             longitude: -116.999398,
             coldBlood: "Cold Blooded",
-            keeper: ZooKeeper.init(title: "Trainer", headline: "Snake Trainer", image: "SnakeTrainer", description: "Reptile", salary: "Fulltime"),
-            volunteer: ZooVolunteer.init(title: "Kid", headline: "Kids", image: "Ian", description: "help us", volunteringDays: "Tuesday", kidAge: 12)
+            keeper: ZooKeeper.init(title: "Trainer", headline: "Snake Trainer", image: "SnakeTrainer", description: "Reptile", salary: "Full-time"),
+            volunteer: ZooVolunteer.init(title: "Kid", headline: "Kids", image: "Ian", description: "help us", volunteeringDays: "Tuesday", kidAge: 12)
                 
             ),
             

@@ -44,7 +44,7 @@ struct ZooVolunteerDatailView: View {
                             .multilineTextAlignment(.leading)
                         
                         // Voluntary Day
-                        Text("Volunteering Day: \(zooVolunteer.volunteringDays)".uppercased())
+                        Text("Volunteering Day: \(zooVolunteer.volunteeringDays)".uppercased())
                             .multilineTextAlignment(.leading)
                             .fontWeight(.bold)
                         

@@ -22,8 +22,8 @@ let birdData: [Birds] = [
       fly: "fly",
       feather: "feather",
       beak: "beak",
-      keeper: ZooKeeper.init(title: "Anna", headline: "bird", image: "BirdWorker", description: "bird", salary: "Fulltime"),
-      volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Lizzie", description: "bird", volunteringDays: "Friday", kidAge: 11)
+      keeper: ZooKeeper.init(title: "Anna", headline: "bird", image: "BirdWorker", description: "bird", salary: "Full-time"),
+      volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Lizzie", description: "bird", volunteeringDays: "Friday", kidAge: 11)
     ),
     Birds(
         id: 2,
@@ -38,8 +38,8 @@ let birdData: [Birds] = [
     fly: "fly",
     feather: "feather",
     beak: "beak",
-    keeper: ZooKeeper.init(title: "Alfred", headline: "bird", image: "MonkeyWorker", description: "bird", salary: "Fulltime"),
-    volunteer: ZooVolunteer.init(title: "Mary", headline: "bird", image: "Mary", description: "bird", volunteringDays: "Friday", kidAge: 8)
+    keeper: ZooKeeper.init(title: "Alfred", headline: "bird", image: "MonkeyWorker", description: "bird", salary: "Full-time"),
+    volunteer: ZooVolunteer.init(title: "Mary", headline: "bird", image: "Mary", description: "bird", volunteeringDays: "Friday", kidAge: 8)
 
   ),
    
@@ -56,8 +56,8 @@ let birdData: [Birds] = [
     fly: "fly",
     feather: "feather",
     beak: "beak",
-        keeper: ZooKeeper.init(title: "Patrick", headline: "bird", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "bird", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
         
     ),
     Birds(
@@ -73,8 +73,8 @@ let birdData: [Birds] = [
     fly: "fly",
     feather: "feather",
     beak: "beak",
-        keeper: ZooKeeper.init(title: "Anna", headline: "bird", image: "BirdWorker", description: "bird", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Lizzie", description: "bird", volunteringDays: "Friday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Anna", headline: "bird", image: "BirdWorker", description: "bird", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Lizzie", description: "bird", volunteeringDays: "Friday", kidAge: 11)
         
     ),
     Birds(
@@ -90,8 +90,8 @@ let birdData: [Birds] = [
     fly: "fly",
     feather: "feather",
     beak: "beak",
-    keeper: ZooKeeper.init(title: "Juan", headline: "bird", image: "MonkeyWorker", description: "bird", salary: "Fulltime"),
-    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Mary", description: "bird", volunteringDays: "Friday", kidAge: 11)
+    keeper: ZooKeeper.init(title: "Juan", headline: "bird", image: "MonkeyWorker", description: "bird", salary: "Full-time"),
+    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Mary", description: "bird", volunteeringDays: "Friday", kidAge: 11)
     )
 ]
 

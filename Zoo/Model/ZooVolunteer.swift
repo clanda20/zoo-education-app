@@ -9,12 +9,12 @@ import Foundation
 
 class ZooVolunteer: Worker, Identifiable {
     
-    var volunteringDays: String
+    var volunteeringDays: String
     var kidAge: Int
     
-    init( id: UUID = UUID(), title: String, headline: String, image: String, description: String, volunteringDays:String, kidAge: Int) {
+    init( id: UUID = UUID(), title: String, headline: String, image: String, description: String, volunteeringDays:String, kidAge: Int) {
         
-        self.volunteringDays = volunteringDays
+        self.volunteeringDays = volunteeringDays
         self.kidAge = kidAge
         
         super.init(id: id, title: title, headline: headline, image: image, description: description)

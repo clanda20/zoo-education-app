@@ -19,8 +19,8 @@ let zooAdminData: [ZooAdmin] = [
         Teresa is often the first friendly face visitors meet. She helps guests find tickets, answers questions about park areas, and keeps the entrance moving smoothly during busy mornings and special events.
         """
       ,
-      salary: "PartTime", 
-      computerSkill: "Laptops, Ipads, Tables"
+      salary: "Part-time", 
+      computerSkill: "Laptops, iPads, tablets"
     ),
   ZooAdmin(
       title: "Michael",
@@ -29,8 +29,8 @@ let zooAdminData: [ZooAdmin] = [
       description: """
         Michael supports the zoo by checking walkways, seating areas, restrooms, and public spaces throughout the day. His work helps every guest enjoy a clean, comfortable, and safe visit.
         """,
-      salary: "FullTime",
-      computerSkill: "NO"
+      salary: "Full-time",
+      computerSkill: "None"
     ),
   ZooAdmin(
       title: "Regina",
@@ -39,28 +39,28 @@ let zooAdminData: [ZooAdmin] = [
       description: """
         Regina keeps the administrative side of the zoo organized. She helps coordinate schedules, messages, visitor requests, and supply notes so keepers, volunteers, and guest teams can focus on their work.
         """,
-      salary: "Fulltime",
-      computerSkill: "Mac, Windows, Ipad, etc"
+      salary: "Full-time",
+      computerSkill: "Mac, Windows, iPad, etc."
     ),
   ZooAdmin(
-      title: "Mellisa",
+      title: "Melissa",
       headline: "Ticket checker who helps visitors start their zoo day smoothly.",
       image: "TicketChecker",
       description: """
-        Mellisa checks passes, answers quick entrance questions, and helps families find the right path into the park. She is patient with first-time guests and keeps lines organized during crowded hours.
+        Melissa checks passes, answers quick entrance questions, and helps families find the right path into the park. She is patient with first-time guests and keeps lines organized during crowded hours.
         """,
-      salary: "FullTime", 
-      computerSkill: "Ipad, Mac."
+      salary: "Full-time", 
+      computerSkill: "iPad, Mac"
       
     ),
   ZooAdmin(
-      title: "Patric",
+      title: "Patrick",
       headline: "Ticket booth attendant who supports sales and guest information.",
       image: "TicketMan",
       description: """
-        Patric helps guests choose tickets, understand park hours, and learn about special exhibits. He also supports daily ticket records so the front office has accurate visitor information.
+        Patrick helps guests choose tickets, understand park hours, and learn about special exhibits. He also supports daily ticket records so the front office has accurate visitor information.
         """,
-      salary: "FullTime", 
-      computerSkill: "Tables"
+      salary: "Full-time", 
+      computerSkill: "Tablets"
   )
 ]

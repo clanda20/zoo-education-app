@@ -45,7 +45,7 @@ struct AnimalRow: View {
 struct AnimalRow_Previews: PreviewProvider{
     static var previews: some View {
         //#Preview {
-        let animal = ZooAnimals(id: 1, name: "Lion", classes: "mammal", location: "African Park", feedingTime: "10:00", description: "This is the lion King",latitude: 10, longitude: 10, keeper: ZooKeeper(title: "Patrick", headline: "mammal", image: "mammalTrainer", description: "mammal", salary: "Fulltime"), volunteer: ZooVolunteer(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11))
+        let animal = ZooAnimals(id: 1, name: "Lion", classes: "mammal", location: "African Park", feedingTime: "10:00", description: "This is the lion King",latitude: 10, longitude: 10, keeper: ZooKeeper(title: "Patrick", headline: "mammal", image: "mammalTrainer", description: "mammal", salary: "Full-time"), volunteer: ZooVolunteer(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11))
         
         AnimalRow(animal: animal)
             .preferredColorScheme(.dark)
@@ -53,5 +53,5 @@ struct AnimalRow_Previews: PreviewProvider{
     }
 }
 /*
- let animal = ZooAnimals(id: 1, name: "Lion", classes: "mammal", location: "African Park", feedingTime: "10:00", description: "This is the lion King",latitude: 10, longitude: 10, keeper: ZooKeeper(title: "Patrick", headline: "mammal", image: "mammalTrainer", description: "mammal", salary: "Fulltime"), volunteer: (title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11))
+ let animal = ZooAnimals(id: 1, name: "Lion", classes: "mammal", location: "African Park", feedingTime: "10:00", description: "This is the lion King",latitude: 10, longitude: 10, keeper: ZooKeeper(title: "Patrick", headline: "mammal", image: "mammalTrainer", description: "mammal", salary: "Full-time"), volunteer: (title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11))
  */

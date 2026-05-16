@@ -19,8 +19,8 @@ let animalData: [ZooAnimals] = [
 
       latitude: 33.097950,
       longitude: -116.997546,
-      keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-      volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+      keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+      volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 2,
@@ -32,8 +32,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098140,
     longitude: -116.999020,
-    keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+    keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
 
   ),
     ZooAnimals(
@@ -46,8 +46,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.097259,
     longitude: -116.999981,
-    keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+    keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
   ),
     ZooAnimals(
         id: 4,
@@ -59,8 +59,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.099787,
     longitude: -116.999636,
-    keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+    keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+    volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 5,
@@ -72,8 +72,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.097822,
     longitude: -116.999398,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 6,
@@ -85,8 +85,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.096499,
     longitude: -116.995216,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 7,
@@ -98,8 +98,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.097782,
     longitude: -116.999758,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 8,
@@ -111,8 +111,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098013,
     longitude: -116.999566,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 9,
@@ -124,8 +124,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098261,
     longitude: -117.000379,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 10,
@@ -137,8 +137,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098941,
     longitude: -116.999709,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 11,
@@ -150,8 +150,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098963,
     longitude: -116.997546,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 12,
@@ -163,8 +163,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.097499,
     longitude: -117.000129,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 13,
@@ -176,8 +176,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098710,
     longitude: -116.999060,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 14,
@@ -189,8 +189,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098549,
     longitude: -116.999324,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 15,
@@ -202,8 +202,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.096791,
     longitude: -116.995564,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 16,
@@ -215,8 +215,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098353,
     longitude: -117.000205,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 17,
@@ -228,8 +228,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.101733,
     longitude: -116.997194,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 18,
@@ -241,8 +241,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.098720,
     longitude: -116.999875,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 19,
@@ -254,8 +254,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.101020,
     longitude: -116.997720,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 20,
@@ -267,8 +267,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.095883,
     longitude: -116.995822,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 21,
@@ -280,8 +280,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.097565,
     longitude: -116.999223,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 22,
@@ -293,8 +293,8 @@ let animalData: [ZooAnimals] = [
         
     latitude: 33.100390,
     longitude: -116.999636,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 23,
@@ -306,8 +306,8 @@ let animalData: [ZooAnimals] = [
 
     latitude: 33.098289,
     longitude: -116.999769,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "bird", image: "BirdTrainer", description: "bird", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Lizzie", description: "bird", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "bird", image: "BirdTrainer", description: "bird", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "bird", image: "Lizzie", description: "bird", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 24,
@@ -319,8 +319,8 @@ let animalData: [ZooAnimals] = [
 
     latitude: 33.099391,
     longitude: -116.999417,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "fish", image: "SeaTrainer", description: "fish", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "fish", image: "Lizzie", description: "fish", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "fish", image: "SeaTrainer", description: "fish", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "fish", image: "Lizzie", description: "fish", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 25,
@@ -332,8 +332,8 @@ let animalData: [ZooAnimals] = [
 
     latitude: 33.099458,
     longitude: -117.000004,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "SeaTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "SeaTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
     ZooAnimals(
         id: 26,
@@ -345,7 +345,7 @@ let animalData: [ZooAnimals] = [
 
     latitude: 33.097508,
     longitude: -117.000510,
-        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Fulltime"),
-        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteringDays: "Monday", kidAge: 11)
+        keeper: ZooKeeper.init(title: "Patrick", headline: "mammal", image: "MammalTrainer", description: "mammal", salary: "Full-time"),
+        volunteer: ZooVolunteer.init(title: "Lizzie", headline: "mammal", image: "Lizzie", description: "mammal", volunteeringDays: "Monday", kidAge: 11)
     ),
 ]

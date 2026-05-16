@@ -19,7 +19,7 @@ let zooKeeperData: [ZooKeeper] = [
         Anna works with the bird team to support daily feeding, habitat checks, and gentle training sessions. She helps birds practice recall flights, perch behavior, and calm interactions with guests during educational presentations.
         """
       ,
-      salary: "PartTime"
+      salary: "Part-time"
     ),
     ZooKeeper(
       title: "Cecilia",
@@ -28,7 +28,7 @@ let zooKeeperData: [ZooKeeper] = [
       description: """
         Cecilia designs bird enrichment activities that encourage natural movement, problem solving, and confident flying. She also prepares the birds for public talks so visitors can learn how each species survives in the wild.
         """,
-      salary: "FullTime"
+      salary: "Full-time"
     ),
   ZooKeeper(
       title: "Juan",
@@ -37,7 +37,7 @@ let zooKeeperData: [ZooKeeper] = [
       description: """
         Juan starts each day by checking habitats, preparing diets, and observing animal behavior. He works closely with mammals such as lions, zebras, and giraffes, making sure they have clean spaces, healthy meals, and meaningful enrichment.
         """,
-      salary: "Partime"
+      salary: "Part-time"
     ),
   ZooKeeper(
       title: "Albert",
@@ -46,7 +46,7 @@ let zooKeeperData: [ZooKeeper] = [
       description: """
         Albert specializes in primate care, especially monkeys and apes. He plans puzzle feeders, climbing activities, and quiet observation time to help the animals stay active, curious, and socially comfortable.
         """,
-      salary: "FullTime"
+      salary: "Full-time"
       
     ),
   ZooKeeper(
@@ -56,7 +56,7 @@ let zooKeeperData: [ZooKeeper] = [
       description: """
         Tom helps care for penguins by preparing fish diets, monitoring water quality, and keeping nesting areas clean. He watches each bird closely during feeding time so the team can spot changes in appetite or behavior early.
         """,
-      salary: "FullTime"
+      salary: "Full-time"
     ),
   ZooKeeper(
       title: "Bob",
@@ -65,7 +65,7 @@ let zooKeeperData: [ZooKeeper] = [
       description: """
         Bob works around the Ocean Park habitats, where he helps maintain clean water, balanced diets, and safe training routines. His day often includes feeding checks, pool inspections, and enrichment for seals, dolphins, and fish.
         """,
-      salary: "FullTime"
+      salary: "Full-time"
     ),
   ZooKeeper(
       title: "Julio",
@@ -74,6 +74,6 @@ let zooKeeperData: [ZooKeeper] = [
       description: """
         Julio cares for reptiles by monitoring temperature, humidity, lighting, and feeding schedules. He helps guests understand that snakes and lizards are important animals with unique adaptations and careful habitat needs.
         """,
-      salary: "FullTime"
+      salary: "Full-time"
   )
 ]

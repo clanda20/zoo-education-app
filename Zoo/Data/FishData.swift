@@ -19,8 +19,8 @@ let fishData: [Fishes] = [
     latitude: 33.099391,
     longitude: -116.999417,
     swim: "swim",
-    keeper: ZooKeeper.init(title: "Tom", headline: "fish", image: "PinguinTrainer", description: "fish", salary: "Fulltime"),
-    volunteer: ZooVolunteer.init(title: "Catherine", headline: "Catherine", image: "Catherine", description: "fish", volunteringDays: "Tuesday", kidAge: 9)
+    keeper: ZooKeeper.init(title: "Tom", headline: "fish", image: "PinguinTrainer", description: "fish", salary: "Full-time"),
+    volunteer: ZooVolunteer.init(title: "Catherine", headline: "Catherine", image: "Catherine", description: "fish", volunteeringDays: "Tuesday", kidAge: 9)
     ),
    
    Fishes(
@@ -34,8 +34,8 @@ let fishData: [Fishes] = [
    latitude: 33.098710,
    longitude: -116.999060,
    swim: "swim",
-   keeper: ZooKeeper.init(title: "Bob", headline: "fish", image: "SeaTrainer", description: "fish", salary: "Fulltime"),
-   volunteer: ZooVolunteer.init(title: "Ian", headline: "Ian", image: "Ian", description: "fish", volunteringDays: "Wednesday", kidAge: 12)
+   keeper: ZooKeeper.init(title: "Bob", headline: "fish", image: "SeaTrainer", description: "fish", salary: "Full-time"),
+   volunteer: ZooVolunteer.init(title: "Ian", headline: "Ian", image: "Ian", description: "fish", volunteeringDays: "Wednesday", kidAge: 12)
    )
 ]
 

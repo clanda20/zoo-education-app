@@ -20,8 +20,8 @@ let amphibianData: [Amphibians] = [
     longitude: -116.999324,
     swim: "swim",
     jump: "jump",
-    keeper: ZooKeeper.init(title: "Tom", headline: "Amphibian", image: "SnakeTrainer", description: "Amphibbian", salary: "Fulltime"),
-    volunteer: ZooVolunteer.init(title: "Benjamin", headline: "Amphibian", image: "Benjamin", description: "Amphibian", volunteringDays: "Monday", kidAge: 14)
+    keeper: ZooKeeper.init(title: "Tom", headline: "Amphibian", image: "SnakeTrainer", description: "Amphibian", salary: "Full-time"),
+    volunteer: ZooVolunteer.init(title: "Benjamin", headline: "Amphibian", image: "Benjamin", description: "Amphibian", volunteeringDays: "Monday", kidAge: 14)
     ),
    
 ]
