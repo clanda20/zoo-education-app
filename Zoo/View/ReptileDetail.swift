@@ -81,16 +81,6 @@ struct ReptileDetail: View {
                         .font(.title2)
                         .padding(.bottom, 15)
                     
-                    Text("Meet the Reptile Zoo Keeper")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
-                    Text(animalReptile.keeper.title)
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
                     Image(animalReptile.keeper.image)
                       .renderingMode(.original)
                       .resizable()
@@ -98,16 +88,6 @@ struct ReptileDetail: View {
                       .frame(width: 120, height: 120, alignment: .center)
                       .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
                       .cornerRadius(8)
-                    
-                    Text("Meet the Reptiles Zoo Volunteer")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
-                    Text(animalReptile.volunteer.title)
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
                     
                     Image(animalReptile.volunteer.image)
                       .renderingMode(.original)

@@ -64,16 +64,6 @@ struct AnimalDetail: View {
                         .font(.title2)
                         .padding(.bottom, 4)
                     
-                    Text("Meet the Zoo Keeper")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
-                    Text(animal.keeper.headline)
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
                     Image(animal.keeper.image)
                       .renderingMode(.original)
                       .resizable()
@@ -81,16 +71,6 @@ struct AnimalDetail: View {
                       .frame(width: 120, height: 120, alignment: .center)
                       .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
                       .cornerRadius(8)
-                    
-                    Text("Meet the Zoo Volunteers")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
-                    Text(animal.volunteer.headline)
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
                     
                     Image(animal.volunteer.image)
                       .renderingMode(.original)

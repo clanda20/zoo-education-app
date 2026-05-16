@@ -77,16 +77,6 @@ struct FishDetail: View {
                         .font(.title2)
                         .padding(.bottom, 15)
                     
-                    Text("Meet the Fishes Zoo Keeper")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
-                    Text(animalFish.keeper.title)
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
                     Image(animalFish.keeper.image)
                       .renderingMode(.original)
                       .resizable()
@@ -94,16 +84,6 @@ struct FishDetail: View {
                       .frame(width: 120, height: 120, alignment: .center)
                       .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
                       .cornerRadius(8)
-                    
-                    Text("Meet the Fishes Zoo Volunteers")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
-                    
-                    Text(animalFish.volunteer.title)
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 15)
                     
                     Image(animalFish.volunteer.image)
                       .renderingMode(.original)
