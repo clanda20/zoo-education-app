@@ -79,21 +79,17 @@ struct AmphibianDetail: View {
                         .font(.title2)
                         .padding(.bottom, 15)
                     
-                    Image(animalAmphibian.keeper.image)
-                      .renderingMode(.original)
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 120, height: 120, alignment: .center)
-                      .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
-                      .cornerRadius(8)
+                    AnimalProfileStaffView(
+                        title: "Meet the Zoo Keeper",
+                        name: animalAmphibian.keeper.title,
+                        image: animalAmphibian.keeper.image
+                    )
                     
-                    Image(animalAmphibian.volunteer.image)
-                      .renderingMode(.original)
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 120, height: 120, alignment: .center)
-                      .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
-                      .cornerRadius(8)
+                    AnimalProfileStaffView(
+                        title: "Meet the Zoo Volunteers",
+                        name: animalAmphibian.volunteer.title,
+                        image: animalAmphibian.volunteer.image
+                    )
                     
                     
                     Text("Map:")

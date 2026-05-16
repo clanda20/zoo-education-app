@@ -77,21 +77,17 @@ struct MammalDetail: View {
                         .font(.title2)
                         .padding(.bottom, 15)
                     
-                    Image(animalMammal.keeper.image)
-                      .renderingMode(.original)
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 120, height: 120, alignment: .center)
-                      .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
-                      .cornerRadius(8)
+                    AnimalProfileStaffView(
+                        title: "Meet the Zoo Keeper",
+                        name: animalMammal.keeper.title,
+                        image: animalMammal.keeper.image
+                    )
                     
-                    Image(animalMammal.volunteer.image)
-                      .renderingMode(.original)
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 120, height: 120, alignment: .center)
-                      .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
-                      .cornerRadius(8)
+                    AnimalProfileStaffView(
+                        title: "Meet the Zoo Volunteers",
+                        name: animalMammal.volunteer.title,
+                        image: animalMammal.volunteer.image
+                    )
                     
                     
                     Text("Map:")

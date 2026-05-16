@@ -77,21 +77,17 @@ struct FishDetail: View {
                         .font(.title2)
                         .padding(.bottom, 15)
                     
-                    Image(animalFish.keeper.image)
-                      .renderingMode(.original)
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 120, height: 120, alignment: .center)
-                      .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
-                      .cornerRadius(8)
+                    AnimalProfileStaffView(
+                        title: "Meet the Zoo Keeper",
+                        name: animalFish.keeper.title,
+                        image: animalFish.keeper.image
+                    )
                     
-                    Image(animalFish.volunteer.image)
-                      .renderingMode(.original)
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 120, height: 120, alignment: .center)
-                      .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
-                      .cornerRadius(8)
+                    AnimalProfileStaffView(
+                        title: "Meet the Zoo Volunteers",
+                        name: animalFish.volunteer.title,
+                        image: animalFish.volunteer.image
+                    )
                     
                     
                     Text("Map:")

@@ -146,6 +146,34 @@ enum ZooTheme {
     }
 }
 
+struct AnimalProfileStaffView: View {
+    let title: String
+    let name: String
+    let image: String
+
+    var body: some View {
+        VStack(spacing: 10) {
+            Text(title)
+                .font(.title2)
+                .bold()
+
+            Image(image)
+                .renderingMode(.original)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 120, height: 120, alignment: .center)
+                .shadow(color: ZooTheme.primary.opacity(0.18), radius: 6, x: 0, y: 3)
+                .cornerRadius(8)
+
+            Text(name)
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(ZooTheme.ink)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, 6)
+    }
+}
+
 extension View {
     func zooScreenStyle() -> some View {
         self
