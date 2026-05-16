@@ -14,17 +14,22 @@ struct ZooApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Group {
+            ZStack {
                 if showWelcome {
                     ZooWelcomeView {
                         withAnimation(.easeInOut(duration: 0.45)) {
                             showWelcome = false
                         }
                     }
+                    .transition(.opacity.combined(with: .scale(scale: 0.98)))
+                    .zIndex(1)
                 } else {
                     MainView()
+                        .transition(.opacity.combined(with: .move(edge: .trailing)))
+                        .zIndex(0)
                 }
             }
+            .animation(.easeInOut(duration: 0.55), value: showWelcome)
             .tint(ZooTheme.primary)
         }
     }
