@@ -421,7 +421,7 @@ private struct ZooIllustratedMapCanvas: View {
     }
 
     private func titleBadge(in size: CGSize) -> some View {
-        Text("Wildwood Learning Zoo")
+        Text("ZooAtlas")
             .font(compact ? .caption.weight(.bold) : .title2.weight(.black))
             .foregroundStyle(ZooTheme.primary)
             .padding(.horizontal, compact ? 10 : 18)

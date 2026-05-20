@@ -7,20 +7,27 @@
 
 import SwiftUI
 import MapKit
+import AVFoundation
 
 @main
 struct ZooApp: App {
     @State private var showWelcome = true
+    @Environment(\.scenePhase) private var scenePhase
+    @StateObject private var backgroundMusic = BackgroundMusicPlayer()
+    @AppStorage("zooatlas_enable_sound_hint_shown") private var hasShownEnableSoundHint = false
+    @State private var showEnableSoundHint = false
 
     var body: some Scene {
         WindowGroup {
             ZStack {
                 if showWelcome {
-                    ZooWelcomeView {
-                        withAnimation(.easeInOut(duration: 0.45)) {
-                            showWelcome = false
+                    ZooWelcomeView(
+                        onStart: {
+                            withAnimation(.easeInOut(duration: 0.45)) {
+                                showWelcome = false
+                            }
                         }
-                    }
+                    )
                     .transition(.opacity.combined(with: .scale(scale: 0.98)))
                     .zIndex(1)
                 } else {
@@ -31,7 +38,141 @@ struct ZooApp: App {
             }
             .animation(.easeInOut(duration: 0.55), value: showWelcome)
             .tint(ZooTheme.primary)
+            .overlay(alignment: .topTrailing) {
+                VStack(alignment: .trailing, spacing: 8) {
+                    if showEnableSoundHint {
+                        Text("Enable ambient sound")
+                            .font(.subheadline.weight(.bold))
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 8)
+                            .background(.ultraThinMaterial, in: Capsule())
+                            .foregroundStyle(.white)
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                    }
+
+                    AudioMuteButton(
+                        isMuted: backgroundMusic.isMuted,
+                        onToggleMute: {
+                            backgroundMusic.toggleMute()
+                            if showEnableSoundHint {
+                                withAnimation(.easeOut(duration: 0.2)) {
+                                    showEnableSoundHint = false
+                                }
+                                hasShownEnableSoundHint = true
+                            }
+                        }
+                    )
+                }
+                .padding(.top, 76)
+                .padding(.trailing, 16)
+            }
+            .onAppear {
+                backgroundMusic.muteForLaunch()
+                backgroundMusic.setTrack(named: "jungleSong_iOS", fileExtension: "mp3")
+                if !hasShownEnableSoundHint {
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        showEnableSoundHint = true
+                    }
+                }
+            }
+            .onChange(of: scenePhase) { _, newPhase in
+                if newPhase == .active {
+                    backgroundMusic.ensurePlaying()
+                }
+            }
         }
+    }
+}
+
+final class BackgroundMusicPlayer: ObservableObject {
+    @Published private(set) var isMuted: Bool
+
+    private var audioPlayer: AVAudioPlayer?
+    private var currentResource: (name: String, ext: String)?
+    private let baseVolume: Float = 0.05
+
+    init() {
+        isMuted = true
+    }
+
+    func playLoop(named resourceName: String, fileExtension: String) {
+        currentResource = (resourceName, fileExtension)
+
+        guard let url = Bundle.main.url(forResource: resourceName, withExtension: fileExtension) else {
+            return
+        }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            try initializeAudioPlayer(with: url)
+            applyMuteState()
+            if !isMuted {
+                startIfNeeded()
+            }
+        } catch {
+            // Keep app behavior intact if audio cannot be initialized.
+        }
+    }
+
+    func setTrack(named resourceName: String, fileExtension: String) {
+        currentResource = (resourceName, fileExtension)
+    }
+
+    func ensurePlaying() {
+        guard !isMuted else { return }
+
+        if audioPlayer == nil, let currentResource {
+            playLoop(named: currentResource.name, fileExtension: currentResource.ext)
+            return
+        }
+
+        startIfNeeded()
+    }
+
+    func toggleMute() {
+        isMuted.toggle()
+        applyMuteState()
+        if !isMuted {
+            ensurePlaying()
+        }
+    }
+
+    func muteForLaunch() {
+        isMuted = true
+        applyMuteState()
+    }
+
+    private func initializeAudioPlayer(with url: URL) throws {
+        audioPlayer = try AVAudioPlayer(contentsOf: url)
+        audioPlayer?.prepareToPlay()
+    }
+
+    private func startPlayback() {
+        audioPlayer?.play()
+    }
+
+    private func beginLooping() {
+        audioPlayer?.numberOfLoops = -1
+    }
+
+    private func startIfNeeded() {
+        guard let audioPlayer else { return }
+        if !audioPlayer.isPlaying {
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                // Keep app behavior intact if audio session cannot reactivate.
+            }
+            startPlayback()
+            beginLooping()
+            applyMuteState()
+        }
+    }
+
+    private func applyMuteState() {
+        audioPlayer?.volume = isMuted ? 0.0 : baseVolume
     }
 }
 
@@ -67,39 +208,93 @@ struct ZooWelcomeView: View {
 
                 VStack(spacing: 24) {
                     Spacer()
-                        .frame(height: max(proxy.size.height * 0.54, 360))
+                        .frame(height: max(proxy.size.height * 0.46, 300))
                     
-                    VStack(spacing: 10) {
-                        Text("Wildwood Learning Zoo")
-                            .font(.largeTitle.weight(.bold))
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(.white)
-                            .shadow(color: .black.opacity(0.55), radius: 8, x: 0, y: 3)
-
-                        Text("Explore animals, habitats, maps, and the people who care for the zoo.")
-                            .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(.white.opacity(0.86))
-                            .frame(maxWidth: 420)
-                            .shadow(color: .black.opacity(0.55), radius: 6, x: 0, y: 2)
-                    }
-
-                    Button(action: onStart) {
-                        Text("Enter Zoo")
-                            .font(.headline.weight(.bold))
-                            .foregroundStyle(ZooTheme.primary)
-                            .padding(.horizontal, 28)
-                            .padding(.vertical, 14)
-                            .background(ZooTheme.surface)
-                            .clipShape(Capsule())
-                    }
-                    .buttonStyle(.plain)
-                    .shadow(color: Color.white.opacity(0.24), radius: 16, x: 0, y: 8)
+                    WaveTitleText(
+                        text: "ZooAtlas",
+                        fontSize: min(max(proxy.size.width * 0.14, 38), 64)
+                    )
 
                     Spacer(minLength: 32)
                 }
                 .padding(.horizontal, 28)
+
+                Color.clear
+                    .contentShape(Rectangle())
+                    .onTapGesture(perform: onStart)
             }
+        }
+    }
+}
+
+struct AudioMuteButton: View {
+    let isMuted: Bool
+    let onToggleMute: () -> Void
+
+    var body: some View {
+        Button(action: onToggleMute) {
+            Image(systemName: isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                .font(.system(size: 16, weight: .semibold))
+                .frame(width: 36, height: 36)
+        }
+        .buttonStyle(.plain)
+        .background(.ultraThinMaterial, in: Circle())
+        .foregroundStyle(.white)
+        .accessibilityLabel("Mute audio")
+    }
+}
+
+struct WaveTitleText: View {
+    let text: String
+    let fontSize: CGFloat
+
+    private var lines: [String] {
+        text.split(separator: "\n", omittingEmptySubsequences: false).map(String.init)
+    }
+
+    var body: some View {
+        TimelineView(.animation) { timeline in
+            let t = timeline.date.timeIntervalSinceReferenceDate
+
+            VStack(spacing: 0) {
+                ForEach(Array(lines.enumerated()), id: \.offset) { lineIndex, line in
+                    HStack(spacing: 0) {
+                        ForEach(Array(line.enumerated()), id: \.offset) { index, char in
+                            let x = Double(index)
+                            let linePhase = Double(lineIndex) * 0.85
+                            let strength = max(0.35, 1.0 - (x / 16.0))
+                            let wave = sin((t * 3.0) + (x * 0.42) + linePhase)
+
+                            Text(String(char))
+                                .font(.system(size: fontSize, weight: .black, design: .rounded))
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        colors: [
+                                            Color(red: 0.99, green: 0.95, blue: 0.84),
+                                            Color(red: 0.94, green: 0.86, blue: 0.69),
+                                            Color(red: 0.86, green: 0.75, blue: 0.54)
+                                        ],
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .offset(y: wave * 6.0 * strength)
+                                .scaleEffect(
+                                    x: 1.0 + (wave * 0.035 * strength),
+                                    y: 1.0 - (wave * 0.05 * strength),
+                                    anchor: .center
+                                )
+                        }
+                    }
+                }
+            }
+            .minimumScaleFactor(0.72)
+            .lineLimit(2)
+            .multilineTextAlignment(.center)
+            .shadow(color: .black.opacity(0.60), radius: 8, x: 0, y: 3)
+            .shadow(color: Color(red: 0.35, green: 0.26, blue: 0.14).opacity(0.45), radius: 2, x: 0, y: 0)
+            .drawingGroup()
+            .accessibilityLabel("ZooAtlas")
         }
     }
 }

@@ -29,7 +29,7 @@ struct ZooKeeperView: View {
     // MARK: - BODY
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 Section{
                     ScrollView(.horizontal, showsIndicators: false) {

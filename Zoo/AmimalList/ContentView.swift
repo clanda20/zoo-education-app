@@ -43,6 +43,7 @@ struct ContentView: View {
             .zooListStyle()
             .listStyle(.plain)
             .navigationTitle("Zoo Animals")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: Int.self) { animalID in
                 if let animal = animalData.first(where: { $0.id == animalID }) {
                     AnimalDetail(animal: animal)

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18C0DE012C00000100ABCDEF /* ZooIllustratedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C0DE002C00000100ABCDEF /* ZooIllustratedMapView.swift */; };
 		182128792B1978E80060A5B2 /* ZooMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182128782B1978E80060A5B2 /* ZooMapView.swift */; };
 		1821287B2B1A98490060A5B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821287A2B1A98490060A5B2 /* MainView.swift */; };
 		1821287F2B1AB4720060A5B2 /* AnimalLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821287E2B1AB4720060A5B2 /* AnimalLocation.swift */; };
@@ -24,6 +23,7 @@
 		18A9091C2B244ECD00E536F5 /* AmphibianDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9091B2B244ECD00E536F5 /* AmphibianDetail.swift */; };
 		18A9091E2B24511100E536F5 /* ReptileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9091D2B24511100E536F5 /* ReptileData.swift */; };
 		18A909202B2452BE00E536F5 /* ReptileDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9091F2B2452BE00E536F5 /* ReptileDetail.swift */; };
+		18C0DE012C00000100ABCDEF /* ZooIllustratedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C0DE002C00000100ABCDEF /* ZooIllustratedMapView.swift */; };
 		18E059C72B1F9FA900F3912F /* ZooKeeperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059C62B1F9FA900F3912F /* ZooKeeperData.swift */; };
 		18E059C92B1FA03200F3912F /* ZooKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059C82B1FA03200F3912F /* ZooKeeper.swift */; };
 		18E059CC2B1FA06700F3912F /* Workers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E059CB2B1FA06700F3912F /* Workers.swift */; };
@@ -59,10 +59,10 @@
 		18F942D32B21558E0083728B /* MammalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942D22B21558E0083728B /* MammalRow.swift */; };
 		18F942D52B215CE00083728B /* MammalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942D42B215CE00083728B /* MammalDetail.swift */; };
 		18F942D72B215DC60083728B /* ClasseslContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F942D62B215DC60083728B /* ClasseslContentView.swift */; };
+		1A2B3C4D5E6F708190A0B0C1 /* jungleSong_iOS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708190A0B0C0 /* jungleSong_iOS.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18C0DE002C00000100ABCDEF /* ZooIllustratedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooIllustratedMapView.swift; sourceTree = "<group>"; };
 		182128782B1978E80060A5B2 /* ZooMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooMapView.swift; sourceTree = "<group>"; };
 		1821287A2B1A98490060A5B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1821287E2B1AB4720060A5B2 /* AnimalLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalLocation.swift; sourceTree = "<group>"; };
@@ -79,6 +79,7 @@
 		18A9091B2B244ECD00E536F5 /* AmphibianDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmphibianDetail.swift; sourceTree = "<group>"; };
 		18A9091D2B24511100E536F5 /* ReptileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReptileData.swift; sourceTree = "<group>"; };
 		18A9091F2B2452BE00E536F5 /* ReptileDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReptileDetail.swift; sourceTree = "<group>"; };
+		18C0DE002C00000100ABCDEF /* ZooIllustratedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooIllustratedMapView.swift; sourceTree = "<group>"; };
 		18E059C62B1F9FA900F3912F /* ZooKeeperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeperData.swift; sourceTree = "<group>"; };
 		18E059C82B1FA03200F3912F /* ZooKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeper.swift; sourceTree = "<group>"; };
 		18E059CB2B1FA06700F3912F /* Workers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workers.swift; sourceTree = "<group>"; };
@@ -92,7 +93,7 @@
 		18E059E12B1FECAD00F3912F /* ZooVolunteerDatailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerDatailView.swift; sourceTree = "<group>"; };
 		18E059E32B1FF36C00F3912F /* ZooVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerView.swift; sourceTree = "<group>"; };
 		18E059E52B1FF49500F3912F /* ZooVolunteerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooVolunteerRowView.swift; sourceTree = "<group>"; };
-		18EBDC3D2B15B11500F986C9 /* Zoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18EBDC3D2B15B11500F986C9 /* ZooAtlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZooAtlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EBDC402B15B11500F986C9 /* ZooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooApp.swift; sourceTree = "<group>"; };
 		18EBDC422B15B11500F986C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18EBDC442B15B11700F986C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		18F942D22B21558E0083728B /* MammalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MammalRow.swift; sourceTree = "<group>"; };
 		18F942D42B215CE00083728B /* MammalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MammalDetail.swift; sourceTree = "<group>"; };
 		18F942D62B215DC60083728B /* ClasseslContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasseslContentView.swift; sourceTree = "<group>"; };
+		1A2B3C4D5E6F708190A0B0C0 /* jungleSong_iOS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jungleSong_iOS.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +230,7 @@
 		18EBDC3E2B15B11500F986C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18EBDC3D2B15B11500F986C9 /* Zoo.app */,
+				18EBDC3D2B15B11500F986C9 /* ZooAtlas.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +248,7 @@
 				18E059CA2B1FA04C00F3912F /* Model */,
 				18EBDC442B15B11700F986C9 /* Assets.xcassets */,
 				1866C6552B17E1190061EE28 /* animals.json */,
+				1A2B3C4D5E6F708190A0B0C0 /* jungleSong_iOS.mp3 */,
 				18EBDC462B15B11700F986C9 /* Preview Content */,
 			);
 			path = Zoo;
@@ -276,7 +279,7 @@
 			);
 			name = Zoo;
 			productName = Zoo;
-			productReference = 18EBDC3D2B15B11500F986C9 /* Zoo.app */;
+			productReference = 18EBDC3D2B15B11500F986C9 /* ZooAtlas.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1866C6562B17E1190061EE28 /* animals.json in Resources */,
+				1A2B3C4D5E6F708190A0B0C1 /* jungleSong_iOS.mp3 in Resources */,
 				18EBDC482B15B11700F986C9 /* Preview Assets.xcassets in Resources */,
 				18EBDC452B15B11700F986C9 /* Assets.xcassets in Resources */,
 			);
@@ -509,12 +513,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zoo/Preview Content\"";
 				DEVELOPMENT_TEAM = ZFRU6SA44A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ZooAtlas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -525,8 +531,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.poquito.Zoo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.poquito.zooatlas;
+				PRODUCT_NAME = ZooAtlas;
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -540,12 +546,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zoo/Preview Content\"";
 				DEVELOPMENT_TEAM = ZFRU6SA44A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ZooAtlas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -556,8 +564,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.poquito.Zoo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.poquito.zooatlas;
+				PRODUCT_NAME = ZooAtlas;
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
